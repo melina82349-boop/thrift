@@ -1,6 +1,71 @@
+.thrift_logo {
+    width: 200px;
+    height: auto;
+    margin-right: auto;
+}
+
 .banner_img {
     width: 100%;
     height: 700px;
     object-fit: cover;
     display: block;
 }
+
+.nav-links {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    gap: 15px;
+    width: fit-content;
+    margin-right:auto;
+}
+
+.nav-links a:hover {
+    background-color: #e8f2ec;
+    color: #08744f;
+}
+
+/* Remove default browser spacing */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Navbar */
+.navbar {
+    width: 100%;
+    height: 65px;
+    display: flex;
+    justify-content: flex-end; /* Move links to the right */
+    align-items: center;
+    padding: 0 40px;
+    background-color: #faf9f5;
+}
+
+/* Navigation links */
+.nav-links {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+/* Make links look like buttons */
+.nav-links a {
+    text-decoration: none;
+    color: #145c43;
+    background-color: #e8f2ec;
+    padding: 10px 20px;
+    border-radius: 8px;
+    font-family: Arial, sans-serif;
+    font-size: 15px;
+    font-weight: 600;
+    transition: 0.3s;
+}
+
+/* Hover effect */
+.nav-links a:hover {
+    background-color: #145c43;
+    color: white;
+}
+
