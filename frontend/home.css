@@ -2,6 +2,7 @@
     width: 200px;
     height: auto;
     margin-right: auto;
+    margin-left: -50px;
 }
 
 .banner_img {
@@ -75,7 +76,7 @@ margin : 0%;
   position: relative;
   display: flex;
   align-items: center;
-  width: 320px;
+  width: 400px;
   max-width: 1000px;
   background-color: #ffffff;
   border: 1px solid #e0e0e0;
@@ -135,23 +136,24 @@ margin : 0%;
     align-items: center;
     gap: 18px;
     margin-left: auto; /* Space between the search bar and the icons */
-    margin-right: 25px;
+    margin-right: -10px;
 }
 
 /* Base style for icon buttons */
+/* Base style for icon buttons with text */
 .icon-btn {
-    position: relative;
-    text-decoration: none;
-    color: #145c43;
-    font-size: 1.25rem;
     display: flex;
     align-items: center;
-    justify-content: center;
-    width: 40px;
-    height: 40px;
+    gap: 4px; /* Gap between icon and text */
+    text-decoration: none;
+    color: #145c43;
+    font-size: 0.75rem;
+    font-weight: 500;
+    font-family: Arial, sans-serif;
+    padding: 6px 12px;
     background-color: #e8f2ec;
-    border-radius: 50%;
-    transition: 0.3s;
+    border-radius: 16px; /* Capsule shape to fit text cleanly */
+    transition: background-color 0.3s, color 0.3s;
 }
 
 /* Hover effect for icon buttons */
@@ -159,6 +161,16 @@ margin : 0%;
     background-color: #145c43;
     color: white;
 }
+
+.icon-btn i {
+    font-size: 1.1rem;
+}
+/* Targets the text specifically to make it small & lowercase */
+.icon-label {
+    font-size: 0.90rem;
+    text-transform:auto; /* Automatically forces lowercase */
+}
+
 
 /* Notification badge on cart 
 .badge {

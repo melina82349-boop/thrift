@@ -8,13 +8,21 @@
     
     <!-- FontAwesome Library for Icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <script src="script.js" defer></script>
 </head>
 <body>
 
+<!-- NAVIGATION BAR -->
+<nav class="navbar">
 
+    <!-- THRIFT LOGO -->
+    <a href="home.html" class="logo">
+        <img src="images/thrift_logo.png"
+             alt="Thrift logo"
+             class="thrift_logo">
+    </a>
+    
 <div class = "nav-links">
-        <!--Logo-->
-        <img src = "/images/cb3b0db2-9078-448c-bb07-f048f4920f3b.png" alt = "Thrift logo" class = "thrift_logo">
         <a href = "home.html">Home</a>
         <a href = "categories.html">Categories</a>
         <a href = "explore.html">Explore</a>
@@ -26,6 +34,7 @@
   <input type="text" placeholder="Search clothes, books, electronics..." />
   <button type="submit" class="search-btn">Search</button>
 </div>
+  <a href = "SellItem.html">+ Sell an Item</a>
 
 <!-- Right Side Icons (Cart & Profile) -->
     <div class="nav-right-icons">
@@ -37,15 +46,16 @@
 
         <!-- Profile Icon -->
         <a href="profile.html" class="icon-btn profile-btn" title="Profile">
-            <i class="fa-regular fa-user"></i>
-        </a>
+    <i class="fa-regular fa-user"></i>
+    <span class="icon-label">Profile</span>
+</a>
     </div>
 </div>
-    
+</nav>
 
   <div class="banner-container">
     <!-- Banner Image -->
-    <img src="/images/bannerimage.jpg" alt="Thrift homepage banner" class="banner_img">
+    <img src="images/bannerimage.jpg" alt="Thrift homepage banner" class="banner_img">
 
     <!-- Content Over the Image -->
     <div class="banner-content">
