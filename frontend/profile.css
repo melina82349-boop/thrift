@@ -1,0 +1,505 @@
+
+/* =========================
+   GLOBAL STYLES
+========================= */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background: #F7F3EA;
+    color: #202020;
+}
+
+/* =========================
+   HEADER
+========================= */
+
+.profile-header {
+    height: 75px;
+    padding: 0 5%;
+    background: #FFFFFF;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.04);
+}
+
+.logo {
+    font-size: 29px;
+    font-weight: 800;
+    letter-spacing: 2px;
+    color: #064E3B;
+    text-decoration: none;
+}
+
+.logo span {
+    color: #D9B99B;
+}
+
+.back-home {
+    text-decoration: none;
+    color: #064E3B;
+    font-weight: 600;
+}
+
+/* =========================
+   MAIN LAYOUT
+========================= */
+
+.profile-container {
+    display: grid;
+    grid-template-columns: 260px 1fr;
+    gap: 30px;
+    max-width: 1400px;
+    margin: 35px auto;
+    padding: 0 30px;
+}
+
+/* =========================
+   SIDEBAR
+========================= */
+
+.sidebar {
+    background: #FFFFFF;
+    border-radius: 18px;
+    padding: 28px 18px;
+    height: fit-content;
+    box-shadow: 0 5px 20px rgba(0,0,0,0.04);
+}
+
+.profile-summary {
+    text-align: center;
+    padding-bottom: 25px;
+    border-bottom: 1px solid #eee;
+}
+
+.profile-photo {
+    width: 90px;
+    height: 90px;
+    border-radius: 50%;
+    background: #E6F0E9;
+    color: #064E3B;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 38px;
+    margin: 0 auto 15px;
+}
+
+.profile-summary h2 {
+    font-size: 19px;
+    margin-bottom: 6px;
+}
+
+.profile-summary p {
+    color: #77736B;
+    font-size: 13px;
+}
+
+/* Sidebar Navigation */
+
+.profile-nav {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    margin-top: 25px;
+}
+
+.profile-nav a {
+    text-decoration: none;
+    color: #555;
+    padding: 13px 14px;
+    border-radius: 9px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    font-size: 14px;
+    transition: 0.3s;
+}
+
+.profile-nav a:hover,
+.profile-nav a.active {
+    background: #E6F0E9;
+    color: #064E3B;
+    font-weight: 600;
+}
+
+/* Logout */
+
+.logout-btn {
+    width: 100%;
+    padding: 13px;
+    margin-top: 25px;
+    background: #fff5f2;
+    color: #b94a36;
+    border: none;
+    border-radius: 9px;
+    font-size: 14px;
+    font-weight: 600;
+    cursor: pointer;
+}
+
+/* =========================
+   MAIN CONTENT
+========================= */
+
+.profile-content {
+    min-width: 0;
+}
+
+.page-heading {
+    margin-bottom: 28px;
+}
+
+.page-heading h1 {
+    color: #064E3B;
+    font-size: 30px;
+    margin-bottom: 9px;
+}
+
+.page-heading p {
+    color: #77736B;
+}
+
+/* =========================
+   STATISTICS CARDS
+========================= */
+
+.stats-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 18px;
+    margin-bottom: 25px;
+}
+
+.stat-card {
+    background: #FFFFFF;
+    padding: 24px;
+    border-radius: 15px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.03);
+}
+
+.stat-card i {
+    color: #064E3B;
+    font-size: 23px;
+    margin-bottom: 15px;
+}
+
+.stat-card h3 {
+    font-size: 24px;
+    margin-bottom: 7px;
+}
+
+.stat-card p {
+    font-size: 13px;
+    color: #77736B;
+}
+
+/* =========================
+   CONTENT SECTIONS
+========================= */
+
+.content-card {
+    background: #FFFFFF;
+    padding: 28px;
+    border-radius: 15px;
+    margin-bottom: 22px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.03);
+}
+
+.content-card h2 {
+    font-size: 19px;
+    color: #064E3B;
+    margin-bottom: 22px;
+}
+
+.section-heading {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 15px;
+}
+
+.section-heading h2 {
+    margin-bottom: 22px;
+}
+
+.edit-btn {
+    background: #E6F0E9;
+    color: #064E3B;
+    border: none;
+    padding: 10px 18px;
+    border-radius: 8px;
+    cursor: pointer;
+    font-weight: 600;
+    margin-bottom: 22px;
+}
+
+/* Personal Details */
+
+.details-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 25px;
+}
+
+.detail-item label {
+    color: #77736B;
+    font-size: 13px;
+    display: block;
+    margin-bottom: 8px;
+}
+
+.detail-item p {
+    font-size: 15px;
+    font-weight: 600;
+}
+
+/* Empty States */
+
+.empty-state {
+    text-align: center;
+    padding: 30px 15px;
+    color: #77736B;
+}
+
+.empty-state i {
+    font-size: 35px;
+    color: #A5BDAE;
+    margin-bottom: 15px;
+}
+
+.empty-state p {
+    font-size: 14px;
+}
+
+/* Income */
+
+.income-display {
+    background: #E6F0E9;
+    padding: 22px;
+    border-radius: 12px;
+}
+
+.income-display p {
+    color: #77736B;
+    margin-bottom: 10px;
+}
+
+.income-display h3 {
+    color: #064E3B;
+    font-size: 27px;
+}
+
+/* =========================
+   TABLET RESPONSIVENESS
+========================= */
+
+@media (max-width: 900px) {
+
+    .profile-container {
+        grid-template-columns: 210px 1fr;
+        gap: 18px;
+        padding: 0 18px;
+    }
+
+    .stats-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+/* =========================
+   MOBILE RESPONSIVENESS
+========================= */
+
+@media (max-width: 600px) {
+
+    .profile-header {
+        height: 65px;
+        padding: 0 18px;
+    }
+
+    .logo {
+        font-size: 24px;
+    }
+
+    .profile-container {
+        display: flex;
+        flex-direction: column;
+        margin: 20px auto;
+        padding: 0 15px;
+    }
+
+    .sidebar {
+        width: 100%;
+        padding: 20px 15px;
+    }
+
+    .profile-nav {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .profile-nav a {
+        font-size: 12px;
+        padding: 12px 8px;
+    }
+
+    .profile-content {
+        width: 100%;
+    }
+
+    .page-heading h1 {
+        font-size: 25px;
+    }
+
+    .stats-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .details-grid {
+        grid-template-columns: 1fr;
+        gap: 20px;
+    }
+
+    .content-card {
+        padding: 20px;
+    }
+
+    .section-heading {
+        flex-wrap: wrap;
+    }
+}
+
+/* Small phones */
+
+@media (max-width: 380px) {
+
+    .profile-nav {
+        grid-template-columns: 1fr;
+    }
+
+    .back-home {
+        font-size: 13px;
+    }
+}
+/* Edit Profile Popup Background */
+.edit-overlay {
+    position: fixed;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.35);
+    backdrop-filter: blur(7px);
+    -webkit-backdrop-filter: blur(7px);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+    padding: 20px;
+}
+
+/* Popup Card */
+.edit-modal {
+    position: relative;
+    background: #FFFFFF;
+    width: 100%;
+    max-width: 450px;
+    padding: 35px;
+    border-radius: 20px;
+    box-shadow: 0 15px 50px rgba(0, 0, 0, 0.2);
+    animation: popupAppear 0.3s ease;
+}
+
+.edit-modal h2 {
+    color: #064E3B;
+    font-size: 25px;
+    margin-bottom: 8px;
+}
+
+.modal-subtitle {
+    color: #77736B;
+    font-size: 14px;
+    margin-bottom: 25px;
+}
+
+.edit-modal .detail-item {
+    margin-bottom: 18px;
+}
+
+.edit-modal label {
+    display: block;
+    font-weight: 600;
+    margin-bottom: 8px;
+}
+
+.edit-modal input {
+    width: 100%;
+    padding: 13px;
+    border: 1px solid #dedbd3;
+    border-radius: 9px;
+    font-size: 15px;
+    outline: none;
+}
+
+.edit-modal input:focus {
+    border-color: #064E3B;
+    box-shadow: 0 0 0 3px rgba(6, 78, 59, 0.1);
+}
+
+/* Popup Buttons */
+.modal-actions {
+    display: flex;
+    gap: 12px;
+    margin-top: 25px;
+}
+
+.modal-actions button {
+    flex: 1;
+    padding: 13px;
+    border-radius: 9px;
+    border: none;
+    cursor: pointer;
+    font-weight: 600;
+}
+
+#saveProfileBtn {
+    background: #064E3B;
+    color: white;
+}
+
+#cancelEditBtn2 {
+    background: #E6F0E9;
+    color: #064E3B;
+}
+
+.close-modal {
+    position: absolute;
+    top: 15px;
+    right: 18px;
+    background: none;
+    border: none;
+    font-size: 27px;
+    color: #77736B;
+    cursor: pointer;
+}
+
+@keyframes popupAppear {
+    from {
+        opacity: 0;
+        transform: translateY(15px) scale(0.96);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+    }
+}
+
+@media (max-width: 500px) {
+    .edit-modal {
+        padding: 28px 22px;
+    }
+}
