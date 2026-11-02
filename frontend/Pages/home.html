@@ -4,11 +4,12 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Thrift</title>
-    <link rel="stylesheet" href="home.css">
+    <link rel="stylesheet" href="../home.css">
     
     <!-- FontAwesome Library for Icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <script src="script.js" defer></script>
+    <script src="../script.js"></script>
+    
 </head>
 <body>
 
@@ -17,16 +18,16 @@
 
     <!-- THRIFT LOGO -->
     <a href="home.html" class="logo">
-        <img src="images/thrift_logo.png"
+        <img src="../images/thrift_logo.png"
              alt="Thrift logo"
-             class="thrift_logo">
+             class="thrift_logo" data-page="home">
     </a>
     
 <div class = "nav-links">
-        <a href = "home.html">Home</a>
-        <a href = "categories.html">Categories</a>
-        <a href = "explore.html">Explore</a>
-        <a href = "about.html">About</a>
+        <a href = "home.html" data-page="home">home</a>
+        <a href = "categories.html" data-page="categories">Categories</a>
+        <a href = "explore.html" data-page="explore">Explore</a>
+        <a href = "about.html" data-page="about">About</a>
         
 
  <div class="search-box">
@@ -34,18 +35,18 @@
   <input type="text" placeholder="Search clothes, books, electronics..." />
   <button type="submit" class="search-btn">Search</button>
 </div>
-  <a href = "SellItem.html">+ Sell an Item</a>
+  <a href = "SellItem.html" data-page="sell">+ Sell an Item</a>
 
 <!-- Right Side Icons (Cart & Profile) -->
     <div class="nav-right-icons">
         <!-- Cart Icon with Notification Badge -->
-        <a href="cart.html" class="icon-btn cart-btn" title="Cart">
+        <a href="cart.html" data-page="cart" class="icon-btn cart-btn" title="Cart">
             <i class="fa-solid fa-cart-shopping"></i>
             <span class="badge"></span>
         </a>
 
         <!-- Profile Icon -->
-        <a href="profile.html" class="icon-btn profile-btn" title="Profile">
+        <a href="profile.html" data-page="profile" class="icon-btn profile-btn" title="Profile">
     <i class="fa-regular fa-user"></i>
     <span class="icon-label">Profile</span>
 </a>
@@ -53,9 +54,10 @@
 </div>
 </nav>
 
+
   <div class="banner-container">
     <!-- Banner Image -->
-    <img src="images/bannerimage.jpg" alt="Thrift homepage banner" class="banner_img">
+    <img src="../images/bannerimage.jpg" alt="Thrift homepage banner" class="banner_img">
 
     <!-- Content Over the Image -->
     <div class="banner-content">
@@ -64,10 +66,5 @@
         <p>Discover pre-loved treasures, save money, and give unused items a new home.</p>
     </div>
 </div>
-    
-    
-    
-
-    
 </body>
 </html>
