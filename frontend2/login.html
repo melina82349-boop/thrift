@@ -5,7 +5,11 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Login | THRIFT</title>
+
     <link rel="stylesheet" href="login.css">
+
+    <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
 
 <body>
@@ -18,30 +22,48 @@
                 <h2>THRIFT<span>.</span></h2>
             </div>
 
-           
-
             <p class="subtitle">
                 Your next favourite find is waiting for you.
             </p>
 
             <form id="loginForm">
 
+                <!-- EMAIL OR PHONE -->
                 <div class="input-group">
                     <label for="email">Email or Phone Number</label>
+
                     <input
                         type="text"
                         id="email"
                         placeholder="Enter your email or phone"
                         required>
+
+                    <small class="error-message" id="emailError"></small>
                 </div>
 
+                <!-- PASSWORD -->
                 <div class="input-group">
                     <label for="password">Password</label>
-                    <input
-                        type="password"
-                        id="password"
-                        placeholder="Enter your password"
-                        required>
+
+                    <div class="password-wrapper">
+                        <input
+                            type="password"
+                            id="password"
+                            placeholder="Enter your password"
+                            required>
+
+                        <button
+                            type="button"
+                            class="toggle-password"
+                            id="togglePassword"
+                            aria-label="Show password">
+
+                            <i class="fa-solid fa-eye"></i>
+
+                        </button>
+                    </div>
+
+                    <small class="error-message" id="passwordError"></small>
                 </div>
 
                 <div class="login-options">
@@ -71,16 +93,20 @@
         </section>
 
     </main>
+
+    <!-- SUCCESS NOTIFICATION -->
     <div class="success-toast" id="successToast">
-    <div class="success-icon">
-        <i class="fa-solid fa-check"></i>
+        <div class="success-icon">
+            <i class="fa-solid fa-check"></i>
+        </div>
+
+        <div class="success-message">
+            <h3>Welcome back!</h3>
+            <p id="successText">You have logged in successfully.</p>
+        </div>
     </div>
 
-    <div class="success-message">
-        <h3>Welcome back!</h3>
-        <p id="successText">You have logged in successfully.</p>
-    </div>
-</div>
-<script src="login.js"></script>
+    <script src="login.js"></script>
+
 </body>
 </html>

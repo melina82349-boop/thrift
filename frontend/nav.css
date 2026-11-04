@@ -1,24 +1,23 @@
 
-/* ==============================
-   THRIFT RESPONSIVE NAVBAR
-============================== */
+/* =========================
+   THRIFT NAVBAR
+   Matching homepage design
+========================= */
 
 * {
     box-sizing: border-box;
 }
 
+/* NAVBAR */
+
 .navbar {
     width: 100%;
-    min-height: 75px;
-    padding: 12px 4%;
+    height: 65px;
     display: flex;
+    justify-content: flex-end;
     align-items: center;
-    justify-content: space-between;
-    gap: 25px;
-    background: #faf9f5;
-    font-family: Arial, sans-serif;
-    position: relative;
-    z-index: 100;
+    padding: 0 40px;
+    background-color: #faf9f5;
 }
 
 /* LOGO */
@@ -26,240 +25,218 @@
 .navbar .logo {
     display: flex;
     align-items: center;
-    justify-content: center;
-    flex: 0 0 100px;
-    width: 100px;
     text-decoration: none;
 }
 
-.navbar .thrift_logo {
+.thrift_logo {
+    width: 200px;
+    height: auto;
+    margin-right: auto;
+    margin-left: -50px;
     display: block;
-    width: 100%;
-    max-width: 100px;
-    height: 48px;
-    object-fit: contain;
 }
 
 /* NAVIGATION LINKS */
 
 .nav-links {
-    flex: 1;
-    min-width: 0;
     display: flex;
-    align-items: center;
     justify-content: flex-end;
-    gap: 22px;
+    align-items: center;
+    gap: 30px;
+    width: 100%;
+    margin: 0;
 }
 
 .nav-links > a {
-    color: #064E3B;
     text-decoration: none;
+    color: #145c43;
+    background-color: #e8f2ec;
+    padding: 10px 20px;
+    border-radius: 8px;
+    font-family: Arial, sans-serif;
     font-size: 15px;
     font-weight: 600;
+    transition: 0.3s;
     white-space: nowrap;
-    transition: color 0.2s ease;
 }
 
 .nav-links > a:hover {
-    color: #D9B99B;
+    background-color: #145c43;
+    color: white;
 }
 
 /* SEARCH BOX */
 
 .search-box {
-    flex: 1;
-    min-width: 150px;
-    max-width: 380px;
-    height: 40px;
+    position: relative;
     display: flex;
     align-items: center;
-    gap: 8px;
-    padding: 0 10px;
-    background: #ffffff;
-    border: 1px solid #d9d9d9;
-    border-radius: 7px;
+    width: 400px;
+    max-width: 100%;
+    background-color: #ffffff;
+    border: 1px solid #e0e0e0;
+    border-radius: 30px;
+    padding: 4px 6px 4px 16px;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);
+    transition: border-color 0.2s, box-shadow 0.2s;
+}
+
+.search-box:focus-within {
+    border-color: #1b4d3e;
+    box-shadow: 0 4px 12px rgba(27, 77, 62, 0.15);
 }
 
 .search-icon {
-    color: #064E3B;
-    font-size: 14px;
+    color: #888888;
+    font-size: 0.95rem;
+    margin-right: 10px;
 }
 
 .search-box input {
-    width: 100%;
+    flex: 1;
     min-width: 0;
     border: none;
     outline: none;
     background: transparent;
-    font-size: 13px;
+    font-size: 0.95rem;
+    color: #333333;
+}
+
+.search-box input::placeholder {
+    color: #aaa;
 }
 
 .search-btn {
+    background-color: #1b4d3e;
+    color: #ffffff;
     border: none;
-    background: #064E3B;
-    color: white;
-    padding: 7px 12px;
-    border-radius: 5px;
+    outline: none;
+    padding: 8px 20px;
+    border-radius: 20px;
+    font-weight: 500;
     cursor: pointer;
-    white-space: nowrap;
+    transition: background-color 0.2s;
 }
 
-/* SELL LINK */
-
-.nav-links > a:nth-of-type(5) {
-    background: #064E3B;
-    color: white;
-    padding: 10px 14px;
-    border-radius: 6px;
+.search-btn:hover {
+    background-color: #143b2f;
 }
 
-.nav-links > a:nth-of-type(5):hover {
-    background: #0b654d;
-}
-
-/* RIGHT SIDE ICONS */
+/* RIGHT ICONS */
 
 .nav-right-icons {
     display: flex;
     align-items: center;
     gap: 18px;
+    margin-left: auto;
+    margin-right: -10px;
     flex-shrink: 0;
 }
 
 .icon-btn {
     display: flex;
     align-items: center;
-    justify-content: center;
-    gap: 6px;
-    color: #064E3B;
+    gap: 4px;
     text-decoration: none;
-    font-size: 18px;
-    white-space: nowrap;
+    color: #145c43;
+    font-size: 0.75rem;
+    font-weight: 500;
+    font-family: Arial, sans-serif;
+    padding: 6px 12px;
+    background-color: #e8f2ec;
+    border-radius: 16px;
+    transition: background-color 0.3s, color 0.3s;
+}
+
+.icon-btn:hover {
+    background-color: #145c43;
+    color: white;
+}
+
+.icon-btn i {
+    font-size: 1.1rem;
 }
 
 .icon-label {
-    font-size: 14px;
-    font-weight: 600;
+    font-size: 0.90rem;
 }
 
-/* ==============================
-   LAPTOP / SMALL DESKTOP
-============================== */
+/* RESPONSIVENESS */
 
 @media (max-width: 1100px) {
     .navbar {
-        gap: 15px;
-        padding: 12px 2%;
-    }
-
-    .nav-links {
-        gap: 14px;
-    }
-
-    .nav-links > a {
-        font-size: 13px;
-    }
-
-    .search-box {
-        max-width: 260px;
-    }
-}
-
-/* ==============================
-   TABLET
-============================== */
-
-@media (max-width: 850px) {
-    .navbar {
+        height: auto;
+        min-height: 65px;
+        padding: 10px 20px;
         flex-wrap: wrap;
-        justify-content: center;
         gap: 12px;
     }
 
-    .navbar .logo {
-    flex: 0 0 85px;
-    width: 85px;
-    margin-right: auto;
-}
+    .thrift_logo {
+        width: 150px;
+        margin-left: -20px;
+    }
 
     .nav-links {
-        width: 100%;
-        flex: 1 1 100%;
-        justify-content: center;
+        gap: 12px;
         flex-wrap: wrap;
-        gap: 16px;
     }
 
     .search-box {
-       
-        flex: 1 1 100%;
-        max-width: 100%;
+        width: 280px;
     }
 }
 
-/* ==============================
-   MOBILE
-============================== */
-
-@media (max-width: 600px) {
+@media (max-width: 750px) {
     .navbar {
+        justify-content: center;
         padding: 12px 15px;
-        gap: 14px;
     }
 
-  .navbar .logo {
-    flex: 0 0 85px;
-    width: 85px;
-    margin-right: auto;
-}
+    .navbar .logo {
+        justify-content: center;
+        width: 100%;
+    }
 
-    .navbar .thrift_logo {
-        max-width: 85px;
-        height: 42px;
+    .thrift_logo {
+        width: 140px;
+        margin: 0;
     }
 
     .nav-links {
         justify-content: center;
-        gap: 13px 18px;
+        gap: 10px;
     }
 
     .nav-links > a {
-        font-size: 13px;
-    }
-
-    .nav-links > a:nth-of-type(5) {
         padding: 8px 12px;
+        font-size: 12px;
     }
 
     .search-box {
-        flex-basis: 100%;
-        height: 40px;
-    }
-
-    .search-box input {
-        font-size: 12px;
+        width: 100%;
+        max-width: 100%;
     }
 
     .nav-right-icons {
         width: 100%;
         justify-content: center;
-        gap: 30px;
-        padding: 5px 0;
+        margin: 0;
+        gap: 25px;
     }
 }
 
-/* EXTRA SMALL PHONES */
-
 @media (max-width: 380px) {
+    .thrift_logo {
+        width: 120px;
+    }
+
     .nav-links {
-        gap: 12px;
+        gap: 8px;
     }
 
     .nav-links > a {
-        font-size: 12px;
-    }
-
-    .icon-label {
-        font-size: 12px;
+        padding: 7px 9px;
+        font-size: 11px;
     }
 }

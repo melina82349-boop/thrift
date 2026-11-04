@@ -234,3 +234,60 @@ body {
         padding: 15px;
     }
 }
+/* =========================
+   LOGIN INPUT VALIDATION
+========================= */
+
+/* Password input wrapper */
+.password-wrapper {
+    position: relative;
+    width: 100%;
+}
+
+.password-wrapper input {
+    width: 100%;
+    padding-right: 45px;
+}
+
+/* Eye button */
+.toggle-password {
+    position: absolute;
+    right: 14px;
+    top: 50%;
+    transform: translateY(-50%);
+    border: none;
+    background: transparent;
+    color: #77736B;
+    cursor: pointer;
+    font-size: 16px;
+    padding: 5px;
+}
+
+.toggle-password:hover {
+    color: #064E3B;
+}
+
+/* Red input border for errors */
+.input-group input.input-error {
+    border: 1.5px solid #DC3545 !important;
+    background: #FFF8F7;
+}
+
+.input-group input.input-error:focus {
+    outline: none;
+    box-shadow: 0 0 0 3px rgba(220, 53, 69, 0.12);
+}
+
+/* Error message */
+.error-message {
+    display: block;
+    color: #DC3545;
+    font-size: 12px;
+    margin-top: 6px;
+    font-weight: 500;
+    min-height: 0;
+}
+
+.error-message:empty {
+    display: none;
+}

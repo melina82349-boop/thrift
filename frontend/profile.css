@@ -45,10 +45,9 @@ body {
     padding-bottom: 25px;
     border-bottom: 1px solid #eee;
 }
-
 .profile-photo {
-    width: 90px;
-    height: 90px;
+    width: 100px;
+    height: 100px;
     border-radius: 50%;
     background: #E6F0E9;
     color: #064E3B;
@@ -57,6 +56,39 @@ body {
     justify-content: center;
     font-size: 38px;
     margin: 0 auto 15px;
+    position: relative;
+    overflow: visible;
+}
+
+.profile-photo img {
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    object-fit: cover;
+    position: absolute;
+    inset: 0;
+}
+
+.change-photo-btn {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    border: 3px solid white;
+    background: #064E3B;
+    color: white;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 2;
+    font-size: 13px;
+}
+
+.change-photo-btn:hover {
+    background: #0a7055;
 }
 
 .profile-summary h2 {
@@ -456,5 +488,328 @@ body {
 
     .profile-nav {
         grid-template-columns: 1fr;
+    }
+}
+
+/* =========================
+   PHOTO SELECTION MODAL
+========================= */
+
+.photo-modal-overlay {
+    position: fixed;
+    inset: 0;
+    background: rgba(20, 32, 26, 0.48);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+    display: none;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+    z-index: 2000;
+}
+
+.photo-modal {
+    position: relative;
+    background: #FFFFFF;
+    width: 100%;
+    max-width: 420px;
+    padding: 35px 28px;
+    border-radius: 22px;
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.18);
+    text-align: center;
+    animation: photoModalAppear 0.3s ease;
+}
+
+@keyframes photoModalAppear {
+    from {
+        opacity: 0;
+        transform: translateY(20px) scale(0.96);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+    }
+}
+
+.photo-modal-close {
+    position: absolute;
+    top: 14px;
+    right: 18px;
+    background: none;
+    border: none;
+    font-size: 28px;
+    color: #888;
+    cursor: pointer;
+}
+
+.photo-modal-icon {
+    width: 65px;
+    height: 65px;
+    margin: 0 auto 18px;
+    border-radius: 50%;
+    background: #E6F0E9;
+    color: #064E3B;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 25px;
+}
+
+.photo-modal h2 {
+    color: #064E3B;
+    font-size: 23px;
+    margin-bottom: 9px;
+}
+
+.photo-modal > p {
+    color: #77736B;
+    font-size: 14px;
+    margin-bottom: 25px;
+}
+
+.photo-option {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    padding: 16px;
+    margin-top: 12px;
+    background: #FAF9F5;
+    border: 1px solid #E9E7DF;
+    border-radius: 13px;
+    text-align: left;
+    cursor: pointer;
+    transition: 0.25s ease;
+    color: #064E3B;
+}
+
+.photo-option:hover {
+    background: #E6F0E9;
+    border-color: #A5BDAE;
+    transform: translateY(-2px);
+}
+
+.photo-option > i:first-child {
+    font-size: 21px;
+    width: 25px;
+    text-align: center;
+}
+
+.photo-option span {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    flex: 1;
+}
+
+.photo-option strong {
+    font-size: 14px;
+}
+
+.photo-option small {
+    color: #77736B;
+    font-size: 12px;
+}
+
+.photo-option .arrow {
+    font-size: 12px;
+    color: #A5BDAE;
+}
+
+/* =========================
+   CUSTOM NOTIFICATION
+========================= */
+
+.custom-toast {
+    position: fixed;
+    top: 25px;
+    right: 25px;
+    z-index: 3000;
+    width: min(370px, calc(100% - 30px));
+    background: #FFFFFF;
+    border-radius: 15px;
+    padding: 17px 18px;
+    display: flex;
+    align-items: center;
+    gap: 13px;
+    box-shadow: 0 10px 35px rgba(0, 0, 0, 0.13);
+    border: 1px solid #E6F0E9;
+    opacity: 0;
+    visibility: hidden;
+    transform: translateX(30px);
+    transition: 0.3s ease;
+}
+
+.custom-toast.show {
+    opacity: 1;
+    visibility: visible;
+    transform: translateX(0);
+}
+
+.toast-icon {
+    width: 42px;
+    height: 42px;
+    flex-shrink: 0;
+    border-radius: 50%;
+    background: #E6F0E9;
+    color: #064E3B;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 17px;
+}
+
+.toast-content {
+    flex: 1;
+}
+
+.toast-content strong {
+    display: block;
+    color: #064E3B;
+    font-size: 14px;
+    margin-bottom: 4px;
+}
+
+.toast-content p {
+    color: #77736B;
+    font-size: 12px;
+    line-height: 1.5;
+}
+
+.custom-toast > button {
+    border: none;
+    background: none;
+    color: #999;
+    font-size: 22px;
+    cursor: pointer;
+}
+
+@media (max-width: 480px) {
+    .custom-toast {
+        top: 15px;
+        right: 15px;
+    }
+
+    .photo-modal {
+        padding: 30px 20px;
+    }
+}
+
+/* =========================
+   CAMERA MODAL
+========================= */
+
+.camera-overlay {
+    position: fixed;
+    inset: 0;
+    background: rgba(20, 32, 26, 0.65);
+    backdrop-filter: blur(9px);
+    -webkit-backdrop-filter: blur(9px);
+    display: none;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+    z-index: 2500;
+}
+
+.camera-modal {
+    position: relative;
+    width: 100%;
+    max-width: 520px;
+    background: #FFFFFF;
+    padding: 30px;
+    border-radius: 22px;
+    text-align: center;
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.2);
+    animation: photoModalAppear 0.3s ease;
+}
+
+.camera-close {
+    position: absolute;
+    top: 12px;
+    right: 18px;
+    border: none;
+    background: none;
+    color: #77736B;
+    font-size: 28px;
+    cursor: pointer;
+}
+
+.camera-modal h2 {
+    color: #064E3B;
+    font-size: 23px;
+    margin-bottom: 8px;
+}
+
+.camera-modal > p {
+    color: #77736B;
+    font-size: 13px;
+    margin-bottom: 20px;
+}
+
+#cameraPreview {
+    width: 100%;
+    max-height: 350px;
+    aspect-ratio: 4 / 3;
+    object-fit: cover;
+    background: #202020;
+    border-radius: 15px;
+    display: block;
+}
+
+#cameraStatus {
+    color: #77736B;
+    font-size: 13px;
+    margin: 15px 0;
+}
+
+.camera-actions {
+    display: flex;
+    justify-content: center;
+    gap: 12px;
+    flex-wrap: wrap;
+}
+
+.camera-actions button {
+    border: none;
+    border-radius: 10px;
+    padding: 12px 20px;
+    background: #064E3B;
+    color: white;
+    font-size: 14px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: 0.25s;
+}
+
+.camera-actions button:hover {
+    background: #0A7055;
+    transform: translateY(-2px);
+}
+
+#retakePhoto {
+    background: #E6F0E9;
+    color: #064E3B;
+}
+
+#retakePhoto:hover {
+    background: #D4E5D9;
+}
+
+#usePhoto {
+    background: #064E3B;
+}
+
+@media (max-width: 480px) {
+    .camera-modal {
+        padding: 25px 18px;
+    }
+
+    .camera-actions {
+        flex-direction: column;
+    }
+
+    .camera-actions button {
+        width: 100%;
     }
 }
