@@ -24,13 +24,19 @@ loginForm.addEventListener("submit", function (event) {
         alert("Incorrect email or password. Please try again.");
         return;
     }
+// Login successful
+sessionStorage.setItem("thriftLoggedIn", "true");
+sessionStorage.setItem("thriftUserEmail", savedUser.email);
 
-    // Login successful
-    sessionStorage.setItem("thriftLoggedIn", "true");
-    sessionStorage.setItem("thriftUserEmail", savedUser.email);
+// Show success notification
+const successToast = document.getElementById("successToast");
+const successText = document.getElementById("successText");
 
-    alert("Login successful! Welcome to THRIFT.");
+successText.textContent = `Good to see you again, ${savedUser.name}!`;
+successToast.classList.add("show");
 
-    // Open profile
+// Redirect after 2 seconds
+setTimeout(function () {
     window.location.href = "../frontend/profile.html";
+}, 2000);
 });

@@ -16,44 +16,12 @@ body {
 }
 
 /* =========================
-   HEADER
-========================= */
-
-.profile-header {
-    height: 75px;
-    padding: 0 5%;
-    background: #FFFFFF;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    box-shadow: 0 2px 10px rgba(0,0,0,0.04);
-}
-
-.logo {
-    font-size: 29px;
-    font-weight: 800;
-    letter-spacing: 2px;
-    color: #064E3B;
-    text-decoration: none;
-}
-
-.logo span {
-    color: #D9B99B;
-}
-
-.back-home {
-    text-decoration: none;
-    color: #064E3B;
-    font-weight: 600;
-}
-
-/* =========================
-   MAIN LAYOUT
+   PROFILE MAIN LAYOUT
 ========================= */
 
 .profile-container {
     display: grid;
-    grid-template-columns: 260px 1fr;
+    grid-template-columns: 260px minmax(0, 1fr);
     gap: 30px;
     max-width: 1400px;
     margin: 35px auto;
@@ -101,7 +69,7 @@ body {
     font-size: 13px;
 }
 
-/* Sidebar Navigation */
+/* SIDEBAR NAVIGATION */
 
 .profile-nav {
     display: flex;
@@ -129,7 +97,7 @@ body {
     font-weight: 600;
 }
 
-/* Logout */
+/* LOGOUT BUTTON */
 
 .logout-btn {
     width: 100%;
@@ -172,7 +140,7 @@ body {
 
 .stats-grid {
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
+    grid-template-columns: repeat(3, minmax(0, 1fr));
     gap: 18px;
     margin-bottom: 25px;
 }
@@ -240,11 +208,11 @@ body {
     margin-bottom: 22px;
 }
 
-/* Personal Details */
+/* PERSONAL DETAILS */
 
 .details-grid {
     display: grid;
-    grid-template-columns: repeat(2, 1fr);
+    grid-template-columns: repeat(2, minmax(0, 1fr));
     gap: 25px;
 }
 
@@ -260,7 +228,7 @@ body {
     font-weight: 600;
 }
 
-/* Empty States */
+/* EMPTY STATES */
 
 .empty-state {
     text-align: center;
@@ -278,7 +246,7 @@ body {
     font-size: 14px;
 }
 
-/* Income */
+/* INCOME */
 
 .income-display {
     background: #E6F0E9;
@@ -297,98 +265,9 @@ body {
 }
 
 /* =========================
-   TABLET RESPONSIVENESS
+   EDIT PROFILE MODAL
 ========================= */
 
-@media (max-width: 900px) {
-
-    .profile-container {
-        grid-template-columns: 210px 1fr;
-        gap: 18px;
-        padding: 0 18px;
-    }
-
-    .stats-grid {
-        grid-template-columns: repeat(2, 1fr);
-    }
-}
-
-/* =========================
-   MOBILE RESPONSIVENESS
-========================= */
-
-@media (max-width: 600px) {
-
-    .profile-header {
-        height: 65px;
-        padding: 0 18px;
-    }
-
-    .logo {
-        font-size: 24px;
-    }
-
-    .profile-container {
-        display: flex;
-        flex-direction: column;
-        margin: 20px auto;
-        padding: 0 15px;
-    }
-
-    .sidebar {
-        width: 100%;
-        padding: 20px 15px;
-    }
-
-    .profile-nav {
-        display: grid;
-        grid-template-columns: repeat(2, 1fr);
-    }
-
-    .profile-nav a {
-        font-size: 12px;
-        padding: 12px 8px;
-    }
-
-    .profile-content {
-        width: 100%;
-    }
-
-    .page-heading h1 {
-        font-size: 25px;
-    }
-
-    .stats-grid {
-        grid-template-columns: 1fr;
-    }
-
-    .details-grid {
-        grid-template-columns: 1fr;
-        gap: 20px;
-    }
-
-    .content-card {
-        padding: 20px;
-    }
-
-    .section-heading {
-        flex-wrap: wrap;
-    }
-}
-
-/* Small phones */
-
-@media (max-width: 380px) {
-
-    .profile-nav {
-        grid-template-columns: 1fr;
-    }
-
-    .back-home {
-        font-size: 13px;
-    }
-}
-/* Edit Profile Popup Background */
 .edit-overlay {
     position: fixed;
     inset: 0;
@@ -402,7 +281,6 @@ body {
     padding: 20px;
 }
 
-/* Popup Card */
 .edit-modal {
     position: relative;
     background: #FFFFFF;
@@ -450,7 +328,6 @@ body {
     box-shadow: 0 0 0 3px rgba(6, 78, 59, 0.1);
 }
 
-/* Popup Buttons */
 .modal-actions {
     display: flex;
     gap: 12px;
@@ -498,8 +375,86 @@ body {
     }
 }
 
-@media (max-width: 500px) {
+/* =========================
+   TABLET RESPONSIVENESS
+========================= */
+
+@media (max-width: 900px) {
+
+    .profile-container {
+        grid-template-columns: 210px minmax(0, 1fr);
+        gap: 18px;
+        padding: 0 18px;
+    }
+
+    .stats-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+}
+
+/* =========================
+   MOBILE RESPONSIVENESS
+========================= */
+
+@media (max-width: 600px) {
+
+    .profile-container {
+        display: flex;
+        flex-direction: column;
+        margin: 20px auto;
+        padding: 0 15px;
+    }
+
+    .sidebar {
+        width: 100%;
+        padding: 20px 15px;
+    }
+
+    .profile-nav {
+        display: grid;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    .profile-nav a {
+        font-size: 12px;
+        padding: 12px 8px;
+    }
+
+    .profile-content {
+        width: 100%;
+    }
+
+    .page-heading h1 {
+        font-size: 25px;
+    }
+
+    .stats-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .details-grid {
+        grid-template-columns: 1fr;
+        gap: 20px;
+    }
+
+    .content-card {
+        padding: 20px;
+    }
+
+    .section-heading {
+        flex-wrap: wrap;
+    }
+
     .edit-modal {
         padding: 28px 22px;
+    }
+}
+
+/* SMALL PHONES */
+
+@media (max-width: 380px) {
+
+    .profile-nav {
+        grid-template-columns: 1fr;
     }
 }
