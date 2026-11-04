@@ -173,3 +173,121 @@ body {
         max-width: 480px;
     }
 }
+/* =========================
+   LOGIN SUCCESS NOTIFICATION
+========================= */
+
+.success-toast {
+    position: fixed;
+    top: 25px;
+    right: 25px;
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    background: #FFFFFF;
+    padding: 18px 24px;
+    border-radius: 14px;
+    box-shadow: 0 10px 35px rgba(0, 0, 0, 0.12);
+    border-left: 5px solid #064E3B;
+    z-index: 2000;
+
+    opacity: 0;
+    visibility: hidden;
+    transform: translateX(30px);
+    transition: all 0.4s ease;
+}
+
+.success-toast.show {
+    opacity: 1;
+    visibility: visible;
+    transform: translateX(0);
+}
+
+.success-icon {
+    width: 42px;
+    height: 42px;
+    border-radius: 50%;
+    background: #E6F0E9;
+    color: #064E3B;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 19px;
+}
+
+.success-message h3 {
+    color: #064E3B;
+    font-size: 16px;
+    margin-bottom: 5px;
+}
+
+.success-message p {
+    color: #77736B;
+    font-size: 13px;
+}
+
+@media (max-width: 500px) {
+    .success-toast {
+        left: 15px;
+        right: 15px;
+        top: 15px;
+        padding: 15px;
+    }
+}
+/* =========================
+   LOGIN INPUT VALIDATION
+========================= */
+
+/* Password input wrapper */
+.password-wrapper {
+    position: relative;
+    width: 100%;
+}
+
+.password-wrapper input {
+    width: 100%;
+    padding-right: 45px;
+}
+
+/* Eye button */
+.toggle-password {
+    position: absolute;
+    right: 14px;
+    top: 50%;
+    transform: translateY(-50%);
+    border: none;
+    background: transparent;
+    color: #77736B;
+    cursor: pointer;
+    font-size: 16px;
+    padding: 5px;
+}
+
+.toggle-password:hover {
+    color: #064E3B;
+}
+
+/* Red input border for errors */
+.input-group input.input-error {
+    border: 1.5px solid #DC3545 !important;
+    background: #FFF8F7;
+}
+
+.input-group input.input-error:focus {
+    outline: none;
+    box-shadow: 0 0 0 3px rgba(220, 53, 69, 0.12);
+}
+
+/* Error message */
+.error-message {
+    display: block;
+    color: #DC3545;
+    font-size: 12px;
+    margin-top: 6px;
+    font-weight: 500;
+    min-height: 0;
+}
+
+.error-message:empty {
+    display: none;
+}

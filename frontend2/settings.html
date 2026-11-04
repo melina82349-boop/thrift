@@ -1,0 +1,136 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Account Settings | THRIFT</title>
+
+    <link rel="stylesheet" href="settings.css">
+    <link rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+
+<body>
+
+    <header class="settings-header">
+        <a href="home.html" class="logo">THRIFT<span>.</span></a>
+        <a href="profile.html" class="back-link">
+            <i class="fa-solid fa-arrow-left"></i> Back to Profile
+        </a>
+    </header>
+
+    <main class="settings-container">
+
+        <div class="settings-heading">
+            <span class="eyebrow">YOUR ACCOUNT</span>
+            <h1>Account Settings</h1>
+            <p>Manage your security, preferences and account information.</p>
+        </div>
+
+        <section class="settings-card">
+            <div class="settings-icon">
+                <i class="fa-solid fa-lock"></i>
+            </div>
+
+            <div class="settings-info">
+                <h2>Password & Security</h2>
+                <p>Change your password and keep your account secure.</p>
+            </div>
+
+            <button id="changePasswordBtn" class="settings-btn">
+                Change Password
+                <i class="fa-solid fa-arrow-right"></i>
+            </button>
+        </section>
+
+        <section class="settings-card">
+            <div class="settings-icon">
+                <i class="fa-solid fa-bell"></i>
+            </div>
+
+            <div class="settings-info">
+                <h2>Notifications</h2>
+                <p>Manage updates about your orders and sales.</p>
+            </div>
+
+            <span class="coming-soon">Coming soon</span>
+        </section>
+
+        <section class="settings-card">
+            <div class="settings-icon">
+                <i class="fa-solid fa-shield-halved"></i>
+            </div>
+
+            <div class="settings-info">
+                <h2>Privacy & Security</h2>
+                <p>Manage your personal information and privacy.</p>
+            </div>
+
+            <span class="coming-soon">Coming soon</span>
+        </section>
+
+        <section class="settings-card">
+            <div class="settings-icon">
+                <i class="fa-solid fa-user-gear"></i>
+            </div>
+
+            <div class="settings-info">
+                <h2>Account Management</h2>
+                <p>Manage your THRIFT account.</p>
+            </div>
+
+            <span class="coming-soon">Coming soon</span>
+        </section>
+<!-- Change Password Popup -->
+<div class="password-overlay" id="passwordOverlay">
+
+    <div class="password-modal">
+
+        <button type="button" class="close-modal" id="closePasswordModal">
+            &times;
+        </button>
+
+        <div class="password-modal-icon">
+            <i class="fa-solid fa-lock"></i>
+        </div>
+
+        <h2>Change Password</h2>
+        <p class="modal-description">
+            Create a strong password to keep your account secure.
+        </p>
+
+        <form id="changePasswordForm">
+
+          <div class="password-field">
+    <label>Current Password</label>
+    <input type="password" id="currentPassword" required>
+
+    <p class="field-error" id="currentPasswordError"></p>
+</div>
+
+            <div class="password-field">
+                <label>New Password</label>
+                <input type="password" id="newPassword" minlength="8" required>
+            </div>
+
+           <div class="password-field">
+    <label>Confirm New Password</label>
+    <input type="password" id="confirmNewPassword" minlength="8" required>
+
+    <p class="field-error" id="confirmPasswordError"></p>
+</div>
+
+            <button type="submit" class="update-password-btn">
+                Update Password
+            </button>
+
+        </form>
+
+    </div>
+</div>
+    </main>
+<script src="settings.js"></script>
+</body>
+</html>

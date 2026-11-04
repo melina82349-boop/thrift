@@ -1,0 +1,548 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sell an Item | Thrift</title>
+    <!-- FontAwesome for Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    
+   <link rel="stylesheet" href="../output.css">
+    <style>
+        /* Custom styled toggle switch & card transitions */
+       .toggle-checkbox:checked {
+            right: 0;
+            background-color: #145c43;
+        }
+        .toggle-checkbox:checked + .toggle-label {
+            background-color: #c5e2d5;
+        }
+        .condition-radio:checked + label {
+            border-color: #145c43;
+            background-color: #f2f8f5;
+            color: #145c43;
+            font-weight: 600;
+            box-shadow: 0 2px 8px rgba(20, 92, 67, 0.12);
+        }
+        /* Custom Scrollbar for form */
+        ::-webkit-scrollbar {
+            width: 6px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #faf9f5;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #cbd5e1;
+            border-radius: 4px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: #94a3b8;
+        }
+    </style>
+</head>
+<body class="bg-cream-100 font-sans text-slate-800 antialiased min-h-screen flex flex-col">
+
+    <!-- NAVIGATION BAR -->
+    <header class="bg-cream-100 border-b border-stone-200/70 sticky top-0 z-50 backdrop-blur-md bg-opacity-90">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex items-center justify-between h-20">
+                <!-- Left: Logo -->
+                <div class="flex items-center gap-8">
+                    <a href="home.html" class="flex items-center gap-2 group">
+                        <span class="text-3xl font-extrabold tracking-tight text-thrift-700 group-hover:text-thrift-600 transition">thrift<span class="text-emerald-500">.</span></span>
+                    </a>
+                    
+                    <!-- Links -->
+                    <nav class="hidden md:flex items-center space-x-6 text-sm font-semibold text-slate-700">
+                        <a href="home.html" class="hover:text-thrift-700 transition">Home</a>
+                        <a href="explore.html" class="hover:text-thrift-700 transition">Explore</a>
+                        <a href="categories.html" class="hover:text-thrift-700 transition">Categories</a>
+                        <a href="about.html" class="hover:text-thrift-700 transition">About</a>
+                    </nav>
+                </div>
+
+                <!-- Right Actions -->
+                <div class="flex items-center gap-4">
+                    <!-- Sell CTA -->
+                    <a href="sell.html" class="inline-flex items-center gap-2 px-5 py-2.5 rounded-full bg-thrift-700 text-white font-semibold text-sm shadow-sm hover:bg-thrift-800 transition-all hover:shadow active:scale-[0.98]">
+                        <i class="fa-solid fa-plus text-xs"></i>
+                        <span>Sell an Item</span>
+                    </a>
+
+                    <!-- Cart Button -->
+                    <a href="cart.html" class="relative p-2.5 rounded-full bg-stone-200/60 hover:bg-thrift-100 text-thrift-800 transition flex items-center justify-center w-10 h-10">
+                        <i class="fa-solid fa-basket-shopping text-base"></i>
+                        <span class="absolute -top-1 -right-1 bg-emerald-600 text-white text-[10px] font-bold w-4 h-4 rounded-full flex items-center justify-center border-2 border-white">2</span>
+                    </a>
+
+                    <!-- Profile Button -->
+                    <a href="profile.html" class="p-2.5 rounded-full bg-stone-200/60 hover:bg-thrift-100 text-thrift-800 transition flex items-center justify-center w-10 h-10">
+                        <i class="fa-regular fa-user text-base"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- HERO HEADER BANNER -->
+    <section class="relative bg-gradient-to-r from-emerald-100/70 via-thrift-50 to-emerald-50/50 border-b border-emerald-100/80 overflow-hidden py-10">
+        <!-- Floating Eco Leaf Decorations -->
+        <div class="absolute -top-4 right-10 text-emerald-300 opacity-40 text-8xl pointer-events-none">
+            <i class="fa-solid fa-leaf"></i>
+        </div>
+        <div class="absolute bottom-2 right-1/3 text-thrift-200 opacity-50 text-6xl pointer-events-none transform -rotate-45">
+            <i class="fa-solid fa-leaf"></i>
+        </div>
+
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+            <div class="flex flex-col md:flex-row items-center justify-between gap-6">
+                <div>
+                    <h1 class="text-3xl sm:text-4xl font-extrabold text-slate-900 tracking-tight">Sell your item</h1>
+                    <p class="text-slate-600 font-medium text-base sm:text-lg mt-1">Give your unused belongings a second life.</p>
+                </div>
+                
+                <!-- Visual Box Graphic Component -->
+                <div class="hidden md:flex items-center gap-3 bg-white/70 backdrop-blur border border-emerald-200/80 rounded-2xl p-3 px-5 shadow-sm">
+                    <div class="w-12 h-12 rounded-xl bg-thrift-100 text-thrift-700 flex items-center justify-center text-xl">
+                        <i class="fa-solid fa-box-open"></i>
+                    </div>
+                    <div>
+                        <div class="text-xs font-bold text-thrift-700 uppercase tracking-wider">Sustainable Shopping</div>
+                        <div class="text-xs text-slate-500 font-medium">Re-use • Reduce • Reimagine</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- MAIN TWO-COLUMN CONTENT AREA -->
+    <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 flex-1 w-full">
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
+            
+            <!-- LEFT COLUMN: Multi-Step Interactive Form (7 Cols) -->
+            <div class="lg:col-span-7 space-y-6">
+                
+                <!-- STEPPER BAR -->
+                <div class="bg-white rounded-2xl p-4 sm:p-5 border border-stone-200 shadow-sm">
+                    <div class="grid grid-cols-4 gap-2 text-center relative">
+                        <!-- Connecting Line -->
+                        <div class="absolute top-4 left-[12%] right-[12%] h-[2px] bg-slate-200 -z-0 hidden sm:block"></div>
+                        
+                        <!-- Step 1 (Active) -->
+                        <div class="relative z-10 flex flex-col items-center">
+                            <div class="w-8 h-8 rounded-full bg-thrift-700 text-white font-bold flex items-center justify-center text-sm shadow-sm ring-4 ring-thrift-100">1</div>
+                            <span class="text-xs font-bold text-slate-800 mt-2">Basic Info</span>
+                        </div>
+                        <!-- Step 2 -->
+                        <div class="relative z-10 flex flex-col items-center">
+                            <div class="w-8 h-8 rounded-full bg-slate-200 text-slate-600 font-bold flex items-center justify-center text-sm">2</div>
+                            <span class="text-xs font-medium text-slate-500 mt-2">Upload Media</span>
+                        </div>
+                        <!-- Step 3 -->
+                        <div class="relative z-10 flex flex-col items-center">
+                            <div class="w-8 h-8 rounded-full bg-slate-200 text-slate-600 font-bold flex items-center justify-center text-sm">3</div>
+                            <span class="text-xs font-medium text-slate-500 mt-2">Set Price</span>
+                        </div>
+                        <!-- Step 4 -->
+                        <div class="relative z-10 flex flex-col items-center">
+                            <div class="w-8 h-8 rounded-full bg-slate-200 text-slate-600 font-bold flex items-center justify-center text-sm">4</div>
+                            <span class="text-xs font-medium text-slate-500 mt-2">Review</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- MAIN FORM CARD -->
+                <form id="sellItemForm" onsubmit="event.preventDefault(); alert('Success! Your listing review is complete.');" class="bg-white rounded-2xl p-6 sm:p-8 border border-stone-200 shadow-sm space-y-8">
+                    
+                    <!-- SECTION 1: BASIC INFORMATION -->
+                    <div class="space-y-4">
+                        <div class="flex items-center gap-3 border-b border-slate-100 pb-3">
+                            <div class="w-8 h-8 rounded-lg bg-thrift-50 text-thrift-700 flex items-center justify-center text-sm font-bold">
+                                <i class="fa-solid fa-tag"></i>
+                            </div>
+                            <div>
+                                <h2 class="text-lg font-bold text-slate-900">1. Basic Information</h2>
+                                <p class="text-xs text-slate-500">Tell us about your item details</p>
+                            </div>
+                        </div>
+
+                        <!-- Product Title -->
+                        <div>
+                            <div class="flex justify-between items-center mb-1.5">
+                                <label for="inputTitle" class="block text-sm font-semibold text-slate-700">Product Title <span class="text-emerald-600">*</span></label>
+                                <span class="text-xs text-slate-400"><span id="titleCharCount">21</span>/80</span>
+                            </div>
+                            <input type="text" id="inputTitle" value="Classic Denim Jacket" maxlength="80" required
+                                class="w-full px-4 py-3 rounded-xl border border-slate-200 focus:border-thrift-700 focus:ring-2 focus:ring-thrift-100 outline-none text-slate-800 text-sm font-medium transition placeholder:text-slate-400"
+                                placeholder="e.g. Vintage Leather Bag, Sony Headphones">
+                        </div>
+
+                        <!-- Category Selection -->
+                        <div>
+                            <label for="inputCategory" class="block text-sm font-semibold text-slate-700 mb-1.5">Category <span class="text-emerald-600">*</span></label>
+                            <div class="relative">
+                                <select id="inputCategory" required class="w-full px-4 py-3 rounded-xl border border-slate-200 focus:border-thrift-700 focus:ring-2 focus:ring-thrift-100 outline-none text-slate-800 text-sm font-medium appearance-none bg-white transition cursor-pointer">
+                                    <option value="Clothing" selected>Clothing</option>
+                                    <option value="Electronics">Electronics</option>
+                                    <option value="Furniture">Furniture</option>
+                                    <option value="Books">Books</option>
+                                    <option value="Household">Household</option>
+                                    <option value="Accessories">Accessories</option>
+                                </select>
+                                <div class="absolute right-4 top-1/2 -translate-y-1/2 pointer-events-none text-slate-400">
+                                    <i class="fa-solid fa-chevron-down text-xs"></i>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Description -->
+                        <div>
+                            <div class="flex justify-between items-center mb-1.5">
+                                <label for="inputDescription" class="block text-sm font-semibold text-slate-700">Description <span class="text-emerald-600">*</span></label>
+                                <span class="text-xs text-slate-400"><span id="descCharCount">45</span>/1000</span>
+                            </div>
+                            <textarea id="inputDescription" rows="3" maxlength="1000" required
+                                class="w-full px-4 py-3 rounded-xl border border-slate-200 focus:border-thrift-700 focus:ring-2 focus:ring-thrift-100 outline-none text-slate-800 text-sm font-medium transition placeholder:text-slate-400 resize-y"
+                                placeholder="Describe your item in detail (condition, sizing, defects, etc.)">Stylish and comfortable denim jacket. Barely used, in good condition.</textarea>
+                        </div>
+                    </div>
+
+                    <!-- SECTION 2: UPLOAD PHOTOS & VIDEO -->
+                    <div class="space-y-4 pt-2">
+                        <div class="flex items-center gap-3 border-b border-slate-100 pb-3">
+                            <div class="w-8 h-8 rounded-lg bg-thrift-50 text-thrift-700 flex items-center justify-center text-sm font-bold">
+                                <i class="fa-solid fa-camera"></i>
+                            </div>
+                            <div>
+                                <h2 class="text-lg font-bold text-slate-900">2. Upload Photos & Video</h2>
+                                <p class="text-xs text-slate-500">Show buyers what you are selling</p>
+                            </div>
+                        </div>
+
+                        <div class="grid grid-cols-1 sm:grid-cols-3 gap-3">
+                            <!-- Photos Upload Box -->
+                            <label class="border-2 border-dashed border-emerald-300 hover:border-thrift-700 bg-thrift-50/50 hover:bg-thrift-50 p-4 rounded-xl flex flex-col items-center justify-center text-center cursor-pointer transition group">
+                                <input type="file" id="imageInput" accept="image/*" multiple class="hidden">
+                                <div class="w-10 h-10 rounded-full bg-white text-thrift-700 flex items-center justify-center text-base shadow-sm mb-2 group-hover:scale-110 transition">
+                                    <i class="fa-solid fa-images"></i>
+                                </div>
+                                <span class="text-xs font-bold text-slate-800">Add Photos</span>
+                                <span class="text-[11px] text-slate-500 mt-0.5">Up to 8 photos</span>
+                            </label>
+
+                            <!-- Video Upload Box -->
+                            <label class="border-2 border-dashed border-slate-200 hover:border-thrift-700 bg-slate-50/60 hover:bg-thrift-50 p-4 rounded-xl flex flex-col items-center justify-center text-center cursor-pointer transition group">
+                                <input type="file" accept="video/*" class="hidden" onchange="alert('Video attached successfully!')">
+                                <div class="w-10 h-10 rounded-full bg-white text-slate-600 group-hover:text-thrift-700 flex items-center justify-center text-base shadow-sm mb-2 group-hover:scale-110 transition">
+                                    <i class="fa-solid fa-video"></i>
+                                </div>
+                                <span class="text-xs font-bold text-slate-800">Add Video</span>
+                                <span class="text-[11px] text-slate-500 mt-0.5">(Optional)</span>
+                            </label>
+
+                            <!-- Take Photo Box -->
+                            <button type="button" onclick="document.getElementById('imageInput').click()" class="border-2 border-dashed border-slate-200 hover:border-thrift-700 bg-slate-50/60 hover:bg-thrift-50 p-4 rounded-xl flex flex-col items-center justify-center text-center cursor-pointer transition group">
+                                <div class="w-10 h-10 rounded-full bg-white text-slate-600 group-hover:text-thrift-700 flex items-center justify-center text-base shadow-sm mb-2 group-hover:scale-110 transition">
+                                    <i class="fa-solid fa-camera"></i>
+                                </div>
+                                <span class="text-xs font-bold text-slate-800">Take Photo</span>
+                                <span class="text-[11px] text-slate-500 mt-0.5">(Optional)</span>
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- SECTION 3: ITEM CONDITION -->
+                    <div class="space-y-4 pt-2">
+                        <div class="flex items-center gap-3 border-b border-slate-100 pb-3">
+                            <div class="w-8 h-8 rounded-lg bg-thrift-50 text-thrift-700 flex items-center justify-center text-sm font-bold">
+                                <i class="fa-solid fa-circle-check"></i>
+                            </div>
+                            <div>
+                                <h2 class="text-lg font-bold text-slate-900">3. Item Condition</h2>
+                                <p class="text-xs text-slate-500">Select the condition of your item</p>
+                            </div>
+                        </div>
+
+                        <div class="grid grid-cols-2 sm:grid-cols-4 gap-3" id="conditionGroup">
+                            <div>
+                                <input type="radio" name="condition" id="condBrandNew" value="Brand New" class="hidden condition-radio">
+                                <label for="condBrandNew" class="flex items-center justify-center py-2.5 px-3 rounded-xl border border-slate-200 text-xs font-medium text-slate-700 text-center cursor-pointer hover:border-thrift-500 transition">
+                                    Brand New
+                                </label>
+                            </div>
+                            <div>
+                                <input type="radio" name="condition" id="condLikeNew" value="Like New" class="hidden condition-radio">
+                                <label for="condLikeNew" class="flex items-center justify-center py-2.5 px-3 rounded-xl border border-slate-200 text-xs font-medium text-slate-700 text-center cursor-pointer hover:border-thrift-500 transition">
+                                    Like New
+                                </label>
+                            </div>
+                            <div>
+                                <input type="radio" name="condition" id="condGood" value="Good" checked class="hidden condition-radio">
+                                <label for="condGood" class="flex items-center justify-center py-2.5 px-3 rounded-xl border border-slate-200 text-xs font-medium text-slate-700 text-center cursor-pointer hover:border-thrift-500 transition">
+                                    Good
+                                </label>
+                            </div>
+                            <div>
+                                <input type="radio" name="condition" id="condFair" value="Fair" class="hidden condition-radio">
+                                <label for="condFair" class="flex items-center justify-center py-2.5 px-3 rounded-xl border border-slate-200 text-xs font-medium text-slate-700 text-center cursor-pointer hover:border-thrift-500 transition">
+                                    Fair
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- SECTION 4: PRICE & LOCATION -->
+                    <div class="space-y-4 pt-2">
+                        <div class="flex items-center gap-3 border-b border-slate-100 pb-3">
+                            <div class="w-8 h-8 rounded-lg bg-thrift-50 text-thrift-700 flex items-center justify-center text-sm font-bold">
+                                <i class="fa-solid fa-coins"></i>
+                            </div>
+                            <div>
+                                <h2 class="text-lg font-bold text-slate-900">4. Set Price & Location</h2>
+                                <p class="text-xs text-slate-500">Choose your price and pickup region</p>
+                            </div>
+                        </div>
+
+                        <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                            <!-- Price Input -->
+                            <div>
+                                <label for="inputPrice" class="block text-sm font-semibold text-slate-700 mb-1.5">Price (Rs.) <span class="text-emerald-600">*</span></label>
+                                <div class="relative">
+                                    <span class="absolute left-3.5 top-1/2 -translate-y-1/2 font-bold text-slate-400 text-sm">Rs.</span>
+                                    <input type="number" id="inputPrice" value="1200" min="0" required
+                                        class="w-full pl-12 pr-4 py-3 rounded-xl border border-slate-200 focus:border-thrift-700 focus:ring-2 focus:ring-thrift-100 outline-none text-slate-800 text-sm font-bold transition"
+                                        placeholder="0">
+                                </div>
+                                <span class="text-[11px] text-slate-400 mt-1 block">Suggested: Rs. 1,000 – 1,800</span>
+                            </div>
+
+                            <!-- Negotiation Toggle -->
+                            <div class="bg-slate-50 border border-slate-200/80 rounded-xl p-3 flex items-center justify-between">
+                                <div>
+                                    <span class="block text-xs font-bold text-slate-800">Price Negotiation</span>
+                                    <span class="text-[11px] text-slate-500">Allow buyers to make offers</span>
+                                </div>
+                                <label class="relative inline-flex items-center cursor-pointer">
+                                    <input type="checkbox" id="inputNegotiable" checked class="sr-only peer">
+                                    <div class="w-11 h-6 bg-slate-200 peer-focus:outline-none rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-slate-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:bg-thrift-700"></div>
+                                </label>
+                            </div>
+                        </div>
+
+                        <!-- Location Select -->
+                        <div>
+                            <label for="inputLocation" class="block text-sm font-semibold text-slate-700 mb-1.5">Location <span class="text-emerald-600">*</span></label>
+                            <div class="relative">
+                                <span class="absolute left-3.5 top-1/2 -translate-y-1/2 text-slate-400">
+                                    <i class="fa-solid fa-location-dot text-sm"></i>
+                                </span>
+                                <select id="inputLocation" required class="w-full pl-10 pr-4 py-3 rounded-xl border border-slate-200 focus:border-thrift-700 focus:ring-2 focus:ring-thrift-100 outline-none text-slate-800 text-sm font-medium appearance-none bg-white transition cursor-pointer">
+                                    <option value="Kathmandu" selected>Kathmandu, Nepal</option>
+                                    <option value="Lalitpur">Lalitpur, Nepal</option>
+                                    <option value="Bhaktapur">Bhaktapur, Nepal</option>
+                                    <option value="Pokhara">Pokhara, Nepal</option>
+                                    <option value="Chitwan">Chitwan, Nepal</option>
+                                </select>
+                                <div class="absolute right-4 top-1/2 -translate-y-1/2 pointer-events-none text-slate-400">
+                                    <i class="fa-solid fa-chevron-down text-xs"></i>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- SUBMIT BUTTON -->
+                    <div class="pt-4 border-t border-slate-100">
+                        <button type="submit" class="w-full bg-thrift-700 hover:bg-thrift-800 text-white font-bold py-3.5 px-6 rounded-xl shadow-md hover:shadow-lg transition flex items-center justify-center gap-2 group active:scale-[0.99]">
+                            <span>Next: Review Your Listing</span>
+                            <i class="fa-solid fa-arrow-right text-xs group-hover:translate-x-1 transition"></i>
+                        </button>
+                    </div>
+
+                </form>
+            </div>
+
+            <!-- RIGHT COLUMN: Real-Time Live Preview (5 Cols) -->
+            <div class="lg:col-span-5 lg:sticky lg:top-28 space-y-4">
+                
+                <!-- PREVIEW CONTAINER CARD -->
+                <div class="bg-white rounded-2xl p-5 border border-stone-200 shadow-sm space-y-4">
+                    <!-- Section Header -->
+                    <div class="flex items-center justify-between border-b border-slate-100 pb-3">
+                        <div class="flex items-center gap-2">
+                            <span class="w-2.5 h-2.5 rounded-full bg-emerald-500 animate-pulse"></span>
+                            <h3 class="text-sm font-bold text-slate-900 tracking-wide uppercase">Live Preview</h3>
+                        </div>
+                        <span class="text-xs text-slate-400 font-medium">Buyer view</span>
+                    </div>
+                    <p class="text-xs text-slate-500">Here is how your item card will appear to prospective buyers on Thrift:</p>
+
+                    <!-- PRODUCT CARD PREVIEW (THRIFT DESIGN LANGUAGE) -->
+                    <div class="bg-white rounded-2xl border border-stone-200 overflow-hidden shadow-sm hover:shadow-md transition">
+                        <!-- Image Container -->
+                        <div class="relative h-64 w-full bg-slate-100 overflow-hidden group">
+                            <img id="previewImage" 
+                                 src="https://images.unsplash.com/photo-1576995853123-5a10305d93c0?auto=format&fit=crop&w=800&q=80" 
+                                 alt="Live Product Preview" 
+                                 class="w-full h-full object-cover group-hover:scale-105 transition duration-500">
+                            
+                            <!-- Wishlist Heart Icon -->
+                            <button class="absolute top-3 right-3 w-9 h-9 rounded-full bg-white/90 backdrop-blur text-slate-600 hover:text-red-500 flex items-center justify-center transition shadow-sm">
+                                <i class="fa-regular fa-heart text-sm"></i>
+                            </button>
+
+                            <!-- Condition Badge Pill -->
+                            <span id="previewConditionBadge" class="absolute top-3 left-3 bg-emerald-100 text-emerald-800 text-[11px] font-bold px-2.5 py-1 rounded-md border border-emerald-200/60 shadow-sm">
+                                Good
+                            </span>
+                        </div>
+
+                        <!-- Card Body Details -->
+                        <div class="p-4 space-y-3">
+                            <div class="flex justify-between items-start">
+                                <div>
+                                    <h4 id="previewTitle" class="font-bold text-slate-900 text-base leading-snug line-clamp-1">Classic Denim Jacket</h4>
+                                    <div class="flex items-center gap-1.5 text-xs text-slate-500 mt-1">
+                                        <i class="fa-solid fa-location-dot text-slate-400"></i>
+                                        <span id="previewLocation">Kathmandu</span>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Price Display -->
+                            <div class="flex items-baseline gap-1.5">
+                                <span class="text-xl font-extrabold text-thrift-700">Rs. <span id="previewPrice">1,200</span></span>
+                                <span id="previewNegotiable" class="text-[10px] font-bold text-emerald-700 bg-emerald-50 px-2 py-0.5 rounded border border-emerald-200/80">Negotiable</span>
+                            </div>
+
+                            <!-- Description Snippet -->
+                            <p id="previewDescription" class="text-xs text-slate-600 line-clamp-2 leading-relaxed bg-slate-50 p-2.5 rounded-lg border border-slate-100">
+                                Stylish and comfortable denim jacket. Barely used, in good condition...
+                            </p>
+
+                            <!-- View Details Button -->
+                            <button class="w-full border border-thrift-700 text-thrift-700 font-bold py-2 px-4 rounded-xl text-xs hover:bg-thrift-700 hover:text-white transition flex items-center justify-center gap-1.5">
+                                <span>View Details</span>
+                                <i class="fa-solid fa-arrow-right text-[10px]"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- SAFETY BADGE -->
+                <div class="bg-emerald-50/70 border border-emerald-200/70 rounded-2xl p-4 flex items-center gap-3 text-emerald-900">
+                    <div class="w-9 h-9 rounded-xl bg-emerald-100 text-emerald-700 flex items-center justify-center shrink-0">
+                        <i class="fa-solid fa-shield-halved text-base"></i>
+                    </div>
+                    <div>
+                        <h5 class="text-xs font-bold">Your information is safe with us</h5>
+                        <p class="text-[11px] text-emerald-700 mt-0.5">We never share your personal contact details publicly without authorization.</p>
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+    </main>
+
+    <!-- FOOTER -->
+    <footer class="bg-thrift-900 text-slate-300 mt-auto text-xs py-8">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col sm:flex-row items-center justify-between gap-4">
+            <div class="flex items-center gap-2">
+                <span class="text-xl font-bold text-white">thrift.</span>
+                <span class="text-slate-500">© 2026 THRIFT Inc. All rights reserved.</span>
+            </div>
+            <div class="flex space-x-6 text-slate-400">
+                <a href="#" class="hover:text-white transition">About</a>
+                <a href="#" class="hover:text-white transition">Help Center</a>
+                <a href="#" class="hover:text-white transition">Terms & Conditions</a>
+                <a href="#" class="hover:text-white transition">Privacy Policy</a>
+            </div>
+        </div>
+    </footer>
+
+    <!-- INTERACTIVE JAVASCRIPT REAL-TIME SYNCHRONIZATION -->
+    <script>
+        // DOM Elements
+        const inputTitle = document.getElementById('inputTitle');
+        const inputDescription = document.getElementById('inputDescription');
+        const inputPrice = document.getElementById('inputPrice');
+        const inputLocation = document.getElementById('inputLocation');
+        const inputNegotiable = document.getElementById('inputNegotiable');
+        const imageInput = document.getElementById('imageInput');
+        
+        // Preview Elements
+        const previewTitle = document.getElementById('previewTitle');
+        const previewDescription = document.getElementById('previewDescription');
+        const previewPrice = document.getElementById('previewPrice');
+        const previewLocation = document.getElementById('previewLocation');
+        const previewConditionBadge = document.getElementById('previewConditionBadge');
+        const previewNegotiable = document.getElementById('previewNegotiable');
+        const previewImage = document.getElementById('previewImage');
+
+        // Counters
+        const titleCharCount = document.getElementById('titleCharCount');
+        const descCharCount = document.getElementById('descCharCount');
+
+        // Real-Time Title Handler
+        inputTitle.addEventListener('input', (e) => {
+            const val = e.target.value;
+            previewTitle.textContent = val.trim() || 'Untitled Product';
+            titleCharCount.textContent = val.length;
+        });
+
+        // Real-Time Description Handler
+        inputDescription.addEventListener('input', (e) => {
+            const val = e.target.value;
+            previewDescription.textContent = val.trim() || 'No description provided yet.';
+            descCharCount.textContent = val.length;
+        });
+
+        // Real-Time Price Handler
+        inputPrice.addEventListener('input', (e) => {
+            const val = parseFloat(e.target.value);
+            if (!isNaN(val)) {
+                previewPrice.textContent = val.toLocaleString();
+            } else {
+                previewPrice.textContent = '0';
+            }
+        });
+
+        // Real-Time Location Handler
+        inputLocation.addEventListener('change', (e) => {
+            previewLocation.textContent = e.target.value;
+        });
+
+        // Real-Time Negotiable Toggle
+        inputNegotiable.addEventListener('change', (e) => {
+            if (e.target.checked) {
+                previewNegotiable.classList.remove('hidden');
+            } else {
+                previewNegotiable.classList.add('hidden');
+            }
+        });
+
+        // Real-Time Condition Radio Selection
+        document.querySelectorAll('input[name="condition"]').forEach((radio) => {
+            radio.addEventListener('change', (e) => {
+                previewConditionBadge.textContent = e.target.value;
+            });
+        });
+
+        // Real-Time File Image Upload Preview
+        imageInput.addEventListener('change', function(e) {
+            const file = e.target.files[0];
+            if (file) {
+                const reader = new FileReader();
+                reader.onload = function(event) {
+                    previewImage.src = event.target.result;
+                };
+                reader.readAsDataURL(file);
+            }
+        });
+    </script>
+</body>
+</html>

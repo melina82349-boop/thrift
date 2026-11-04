@@ -7,55 +7,114 @@
 
     <title>My Profile | THRIFT</title>
 
+    <link rel="stylesheet" href="nav.css">
     <link rel="stylesheet" href="profile.css">
 
     <link rel="stylesheet"
-    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
 
 <body>
 
-    <header class="profile-header">
-        <a href="home.html" class="logo">THRIFT<span>.</span></a>
+    <!-- MAIN NAVBAR -->
+    <nav class="navbar">
 
-        <a href="home.html" class="back-home">
-            <i class="fa-solid fa-house"></i> Home
+        <a href="home.html" class="logo">
+            <img src="images/thrift_logo.png"
+                 alt="THRIFT Logo"
+                 class="thrift_logo">
         </a>
-    </header>
 
+        <div class="nav-links">
+
+            <a href="home.html">Home</a>
+            <a href="categories.html">Categories</a>
+            <a href="explore.html">Explore</a>
+            <a href="about.html">About</a>
+
+            <div class="search-box">
+                <i class="fa-solid fa-magnifying-glass search-icon"></i>
+                <input type="text"
+                       placeholder="Search clothes, books, electronics...">
+                <button type="button" class="search-btn">Search</button>
+            </div>
+
+            <a href="SellItem.html">+ Sell an Item</a>
+
+            <div class="nav-right-icons">
+
+                <a href="cart.html" class="icon-btn cart-btn" title="Cart">
+                    <i class="fa-solid fa-cart-shopping"></i>
+                    <span class="badge"></span>
+                </a>
+
+                <a href="profile.html" class="icon-btn profile-btn" title="Profile">
+                    <i class="fa-regular fa-user"></i>
+                    <span class="icon-label">Profile</span>
+                </a>
+
+            </div>
+        </div>
+    </nav>
+
+    <!-- PROFILE CONTENT -->
     <main class="profile-container">
 
+        <!-- SIDEBAR -->
         <aside class="sidebar">
 
             <div class="profile-summary">
-                <div class="profile-photo">
-                    <i class="fa-solid fa-user"></i>
-                </div>
 
-              <h2 id="profileName">Your Name</h2>
+               <div class="profile-photo" id="profilePhotoContainer">
+    <img id="profileImage" src="" alt="Profile Photo" style="display: none;">
+
+    <i class="fa-solid fa-user" id="defaultProfileIcon"></i>
+
+    <button type="button" class="change-photo-btn" id="changePhotoBtn" title="Change profile photo">
+        <i class="fa-solid fa-camera"></i>
+    </button>
+</div>
+
+<input
+    type="file"
+    id="profilePhotoInput"
+    accept="image/*"
+    capture="user"
+    hidden
+>
+
+                <h2 id="profileName">Your Name</h2>
                 <p>THRIFT Member</p>
+
             </div>
 
             <nav class="profile-nav">
+
                 <a href="#personal" class="active">
-                    <i class="fa-solid fa-user"></i> Personal Details
+                    <i class="fa-solid fa-user"></i>
+                    Personal Details
                 </a>
 
                 <a href="#orders">
-                    <i class="fa-solid fa-box"></i> My Orders
+                    <i class="fa-solid fa-box"></i>
+                    My Orders
                 </a>
 
                 <a href="#selling">
-                    <i class="fa-solid fa-store"></i> My Selling
+                    <i class="fa-solid fa-store"></i>
+                    My Selling
                 </a>
 
                 <a href="#income">
-                    <i class="fa-solid fa-wallet"></i> My Income
+                    <i class="fa-solid fa-wallet"></i>
+                    My Income
                 </a>
 
-                <a href="#settings">
-                    <i class="fa-solid fa-gear"></i> Settings
+                <a href="settings.html">
+                    <i class="fa-solid fa-gear"></i>
+                    Settings
                 </a>
+
             </nav>
 
             <button class="logout-btn">
@@ -65,6 +124,7 @@
 
         </aside>
 
+        <!-- MAIN PROFILE AREA -->
         <section class="profile-content">
 
             <div class="page-heading">
@@ -72,92 +132,111 @@
                 <p>Manage your THRIFT account and activities.</p>
             </div>
 
-            <section class="stats-grid">
+            <!-- STATISTICS -->
+            <div class="stats-grid">
 
                 <div class="stat-card">
                     <i class="fa-solid fa-bag-shopping"></i>
-                    <h3>0</h3>
+                    <h3 id="totalOrders">0</h3>
                     <p>Total Orders</p>
                 </div>
 
                 <div class="stat-card">
                     <i class="fa-solid fa-store"></i>
-                    <h3>0</h3>
+                    <h3 id="productsSold">0</h3>
                     <p>Products Sold</p>
                 </div>
 
                 <div class="stat-card">
                     <i class="fa-solid fa-wallet"></i>
-                    <h3>Rs. 0</h3>
+                    <h3 id="totalIncome">Rs. 0</h3>
                     <p>Total Income</p>
                 </div>
 
-            </section>
-           <div class="edit-overlay" id="editForm" style="display: none;">
-    <div class="edit-modal">
+            </div>
 
-        <button type="button" class="close-modal" id="cancelEditBtn">&times;</button>
+            <!-- EDIT PROFILE MODAL -->
+            <div class="edit-overlay" id="editForm" style="display: none;">
 
-        <h2>Edit Your Details</h2>
-        <p class="modal-subtitle">Keep your THRIFT profile up to date.</p>
+                <div class="edit-modal">
 
-        <div class="detail-item">
-            <label>Full Name</label>
-            <input type="text" id="editName">
-        </div>
+                    <button type="button"
+                            class="close-modal"
+                            id="cancelEditBtn">&times;</button>
 
-        <div class="detail-item">
-            <label>Phone Number</label>
-            <input type="tel" id="editPhone">
-        </div>
+                    <h2>Edit Your Details</h2>
 
-        <div class="detail-item">
-            <label>Delivery Address</label>
-            <input type="text" id="editAddress" placeholder="Enter your delivery address">
-        </div>
+                    <p class="modal-subtitle">
+                        Keep your THRIFT profile up to date.
+                    </p>
 
-        <div class="modal-actions">
-            <button type="button" id="cancelEditBtn2">Cancel</button>
-            <button type="button" id="saveProfileBtn">Save Changes</button>
-        </div>
+                    <div class="detail-item">
+                        <label for="editName">Full Name</label>
+                        <input type="text" id="editName">
+                    </div>
 
-    </div>
-</div>
+                    <div class="detail-item">
+                        <label for="editPhone">Phone Number</label>
+                        <input type="tel" id="editPhone">
+                    </div>
 
+                    <div class="detail-item">
+                        <label for="editAddress">Delivery Address</label>
+                        <input type="text"
+                               id="editAddress"
+                               placeholder="Enter your delivery address">
+                    </div>
+
+                    <div class="modal-actions">
+                        <button type="button" id="cancelEditBtn2">
+                            Cancel
+                        </button>
+
+                        <button type="button" id="saveProfileBtn">
+                            Save Changes
+                        </button>
+                    </div>
+
+                </div>
+            </div>
+
+            <!-- PERSONAL INFORMATION -->
             <section class="content-card" id="personal">
 
                 <div class="section-heading">
                     <h2>Personal Information</h2>
-                    <button class="edit-btn" id="editProfileBtn">Edit Profile</button>
+
+                    <button class="edit-btn" id="editProfileBtn">
+                        Edit Profile
+                    </button>
                 </div>
 
                 <div class="details-grid">
 
-    <div class="detail-item">
-        <label>Full Name</label>
-        <p id="fullName">Your Name</p>
-    </div>
+                    <div class="detail-item">
+                        <label>Full Name</label>
+                        <p id="fullName">Your Name</p>
+                    </div>
 
-    <div class="detail-item">
-        <label>Email Address</label>
-        <p id="profileEmail">your@email.com</p>
-    </div>
+                    <div class="detail-item">
+                        <label>Email Address</label>
+                        <p id="profileEmail">your@email.com</p>
+                    </div>
 
-    <div class="detail-item">
-        <label>Phone Number</label>
-        <p id="profilePhone">+977 98XXXXXXXX</p>
-    </div>
+                    <div class="detail-item">
+                        <label>Phone Number</label>
+                        <p id="profilePhone">+977 98XXXXXXXX</p>
+                    </div>
 
-    <div class="detail-item">
-        <label>Delivery Address</label>
-        <p>Your address</p>
-    </div>
+                    <div class="detail-item">
+                        <label>Delivery Address</label>
+                        <p id="profileAddress">Your address</p>
+                    </div>
 
-</div>
                 </div>
-
             </section>
 
+            <!-- ORDERS -->
             <section class="content-card" id="orders">
 
                 <h2>Recent Orders</h2>
@@ -169,6 +248,7 @@
 
             </section>
 
+            <!-- SELLING -->
             <section class="content-card" id="selling">
 
                 <h2>My Selling Activity</h2>
@@ -180,6 +260,7 @@
 
             </section>
 
+            <!-- INCOME -->
             <section class="content-card" id="income">
 
                 <h2>My Income</h2>
@@ -191,14 +272,90 @@
 
             </section>
 
-            <section class="content-card" id="settings">
-                <h2>Account Settings</h2>
-                <p>Manage your account preferences.</p>
-            </section>
-
         </section>
+        <!-- PHOTO SELECTION MODAL -->
+<div class="photo-modal-overlay" id="photoModal">
+    <div class="photo-modal">
 
+        <button class="photo-modal-close" id="closePhotoModal">&times;</button>
+
+        <div class="photo-modal-icon">
+            <i class="fa-solid fa-camera"></i>
+        </div>
+
+        <h2>Update Profile Photo</h2>
+        <p>Choose how you'd like to add your photo.</p>
+
+        <button class="photo-option" id="galleryOption">
+            <i class="fa-solid fa-images"></i>
+            <span>
+                <strong>Choose from Gallery</strong>
+                <small>Select a photo from your device</small>
+            </span>
+            <i class="fa-solid fa-chevron-right arrow"></i>
+        </button>
+
+        <button class="photo-option" id="cameraOption">
+            <i class="fa-solid fa-camera-retro"></i>
+            <span>
+                <strong>Take a Photo</strong>
+                <small>Use your device camera</small>
+            </span>
+            <i class="fa-solid fa-chevron-right arrow"></i>
+        </button>
+
+    </div>
+</div>
+
+<!-- BEAUTIFUL NOTIFICATION -->
+<div class="custom-toast" id="customToast">
+    <div class="toast-icon" id="toastIcon">
+        <i class="fa-solid fa-check"></i>
+    </div>
+
+    <div class="toast-content">
+        <strong id="toastTitle">Success!</strong>
+        <p id="toastMessage">Your photo has been updated.</p>
+    </div>
+
+    <button id="closeToast">&times;</button>
+</div>
+<!-- CAMERA MODAL -->
+<div class="camera-overlay" id="cameraModal">
+    <div class="camera-modal">
+
+        <button type="button" class="camera-close" id="closeCamera">
+            &times;
+        </button>
+
+        <h2>Take Your Photo</h2>
+        <p>Allow camera access to capture your profile picture.</p>
+
+        <video id="cameraPreview" autoplay playsinline></video>
+
+        <canvas id="photoCanvas" hidden></canvas>
+
+        <p id="cameraStatus">Waiting for camera permission...</p>
+
+        <div class="camera-actions">
+            <button type="button" id="capturePhoto">
+                <i class="fa-solid fa-camera"></i> Capture Photo
+            </button>
+
+            <button type="button" id="usePhoto" hidden>
+                Use Photo
+            </button>
+
+            <button type="button" id="retakePhoto" hidden>
+                Retake
+            </button>
+        </div>
+
+    </div>
+</div>
     </main>
-<script src="profile.js"></script>
+
+    <script src="profile.js"></script>
+
 </body>
 </html>

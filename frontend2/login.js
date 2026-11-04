@@ -1,36 +1,137 @@
 
 const loginForm = document.getElementById("loginForm");
 
+const emailInput = document.getElementById("email");
+const passwordInput = document.getElementById("password");
+const rememberMe = document.querySelector(".login-options input[type='checkbox']");
+
+// Load remembered email or phone
+const rememberedUser = localStorage.getItem("thriftRememberedUser");
+
+if (rememberedUser) {
+    emailInput.value = rememberedUser;
+    rememberMe.checked = true;
+}
+const emailError = document.getElementById("emailError");
+const passwordError = document.getElementById("passwordError");
+
+const togglePassword = document.getElementById("togglePassword");
+
+// SHOW / HIDE PASSWORD
+togglePassword.addEventListener("click", function () {
+
+    if (passwordInput.type === "password") {
+        passwordInput.type = "text";
+        togglePassword.innerHTML = '<i class="fa-solid fa-eye-slash"></i>';
+        togglePassword.setAttribute("aria-label", "Hide password");
+    } else {
+        passwordInput.type = "password";
+        togglePassword.innerHTML = '<i class="fa-solid fa-eye"></i>';
+        togglePassword.setAttribute("aria-label", "Show password");
+    }
+
+});
+
+// CLEAR ERROR
+function clearError(input, errorElement) {
+    input.classList.remove("input-error");
+    errorElement.textContent = "";
+}
+
+// SHOW ERROR
+function showError(input, errorElement, message) {
+    input.classList.add("input-error");
+    errorElement.textContent = message;
+}
+
+// Remove errors while typing
+emailInput.addEventListener("input", function () {
+    clearError(emailInput, emailError);
+});
+
+passwordInput.addEventListener("input", function () {
+    clearError(passwordInput, passwordError);
+});
+
+// LOGIN FORM
 loginForm.addEventListener("submit", function (event) {
+
     event.preventDefault();
 
-    const email = document.getElementById("email").value.trim();
-    const password = document.getElementById("password").value;
+    const emailOrPhone = emailInput.value.trim();
+    const password = passwordInput.value;
 
-    // Get the registered account
-    const savedUser = JSON.parse(localStorage.getItem("thriftUser"));
+    // Clear previous errors
+    clearError(emailInput, emailError);
+    clearError(passwordInput, passwordError);
 
-    // Check whether an account exists
+    // Get registered account
+    let savedUser;
+
+    try {
+        savedUser = JSON.parse(localStorage.getItem("thriftUser"));
+    } catch (error) {
+        savedUser = null;
+    }
+
+    // Check account existence
     if (!savedUser) {
-        alert("No account found. Please sign up first.");
+        showError(
+            emailInput,
+            emailError,
+            "No account found. Please sign up first."
+        );
         return;
     }
 
-    // Verify email and password
-    if (
-        email !== savedUser.email ||
-        password !== savedUser.password
-    ) {
-        alert("Incorrect email or password. Please try again.");
+    // Check email or phone number
+    const emailMatches =
+        emailOrPhone.toLowerCase() ===
+        String(savedUser.email || "").toLowerCase();
+
+    const phoneMatches =
+        emailOrPhone === String(savedUser.phone || "");
+
+    if (!emailMatches && !phoneMatches) {
+        showError(
+            emailInput,
+            emailError,
+            "Incorrect email or phone number."
+        );
         return;
     }
 
-    // Login successful
+    // Check password
+    if (password !== savedUser.password) {
+        showError(
+            passwordInput,
+            passwordError,
+            "Incorrect password. Please try again."
+        );
+        return;
+    }
+
+    // LOGIN SUCCESSFUL
     sessionStorage.setItem("thriftLoggedIn", "true");
     sessionStorage.setItem("thriftUserEmail", savedUser.email);
+// Remember user preference
+if (rememberMe.checked) {
+    localStorage.setItem("thriftRememberedUser", emailOrPhone);
+} else {
+    localStorage.removeItem("thriftRememberedUser");
+}
+    // Show success notification
+    const successToast = document.getElementById("successToast");
+    const successText = document.getElementById("successText");
 
-    alert("Login successful! Welcome to THRIFT.");
+    successText.textContent =
+        `Good to see you again, ${savedUser.name}!`;
 
-    // Open profile
-    window.location.href = "../frontend/profile.html";
+    successToast.classList.add("show");
+
+    // Redirect after 2 seconds
+    setTimeout(function () {
+        window.location.href = "../frontend/profile.html";
+    }, 2000);
+
 });

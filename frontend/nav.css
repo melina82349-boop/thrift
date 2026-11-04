@@ -1,0 +1,242 @@
+
+/* =========================
+   THRIFT NAVBAR
+   Matching homepage design
+========================= */
+
+* {
+    box-sizing: border-box;
+}
+
+/* NAVBAR */
+
+.navbar {
+    width: 100%;
+    height: 65px;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    padding: 0 40px;
+    background-color: #faf9f5;
+}
+
+/* LOGO */
+
+.navbar .logo {
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+}
+
+.thrift_logo {
+    width: 200px;
+    height: auto;
+    margin-right: auto;
+    margin-left: -50px;
+    display: block;
+}
+
+/* NAVIGATION LINKS */
+
+.nav-links {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    gap: 30px;
+    width: 100%;
+    margin: 0;
+}
+
+.nav-links > a {
+    text-decoration: none;
+    color: #145c43;
+    background-color: #e8f2ec;
+    padding: 10px 20px;
+    border-radius: 8px;
+    font-family: Arial, sans-serif;
+    font-size: 15px;
+    font-weight: 600;
+    transition: 0.3s;
+    white-space: nowrap;
+}
+
+.nav-links > a:hover {
+    background-color: #145c43;
+    color: white;
+}
+
+/* SEARCH BOX */
+
+.search-box {
+    position: relative;
+    display: flex;
+    align-items: center;
+    width: 400px;
+    max-width: 100%;
+    background-color: #ffffff;
+    border: 1px solid #e0e0e0;
+    border-radius: 30px;
+    padding: 4px 6px 4px 16px;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);
+    transition: border-color 0.2s, box-shadow 0.2s;
+}
+
+.search-box:focus-within {
+    border-color: #1b4d3e;
+    box-shadow: 0 4px 12px rgba(27, 77, 62, 0.15);
+}
+
+.search-icon {
+    color: #888888;
+    font-size: 0.95rem;
+    margin-right: 10px;
+}
+
+.search-box input {
+    flex: 1;
+    min-width: 0;
+    border: none;
+    outline: none;
+    background: transparent;
+    font-size: 0.95rem;
+    color: #333333;
+}
+
+.search-box input::placeholder {
+    color: #aaa;
+}
+
+.search-btn {
+    background-color: #1b4d3e;
+    color: #ffffff;
+    border: none;
+    outline: none;
+    padding: 8px 20px;
+    border-radius: 20px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: background-color 0.2s;
+}
+
+.search-btn:hover {
+    background-color: #143b2f;
+}
+
+/* RIGHT ICONS */
+
+.nav-right-icons {
+    display: flex;
+    align-items: center;
+    gap: 18px;
+    margin-left: auto;
+    margin-right: -10px;
+    flex-shrink: 0;
+}
+
+.icon-btn {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+    text-decoration: none;
+    color: #145c43;
+    font-size: 0.75rem;
+    font-weight: 500;
+    font-family: Arial, sans-serif;
+    padding: 6px 12px;
+    background-color: #e8f2ec;
+    border-radius: 16px;
+    transition: background-color 0.3s, color 0.3s;
+}
+
+.icon-btn:hover {
+    background-color: #145c43;
+    color: white;
+}
+
+.icon-btn i {
+    font-size: 1.1rem;
+}
+
+.icon-label {
+    font-size: 0.90rem;
+}
+
+/* RESPONSIVENESS */
+
+@media (max-width: 1100px) {
+    .navbar {
+        height: auto;
+        min-height: 65px;
+        padding: 10px 20px;
+        flex-wrap: wrap;
+        gap: 12px;
+    }
+
+    .thrift_logo {
+        width: 150px;
+        margin-left: -20px;
+    }
+
+    .nav-links {
+        gap: 12px;
+        flex-wrap: wrap;
+    }
+
+    .search-box {
+        width: 280px;
+    }
+}
+
+@media (max-width: 750px) {
+    .navbar {
+        justify-content: center;
+        padding: 12px 15px;
+    }
+
+    .navbar .logo {
+        justify-content: center;
+        width: 100%;
+    }
+
+    .thrift_logo {
+        width: 140px;
+        margin: 0;
+    }
+
+    .nav-links {
+        justify-content: center;
+        gap: 10px;
+    }
+
+    .nav-links > a {
+        padding: 8px 12px;
+        font-size: 12px;
+    }
+
+    .search-box {
+        width: 100%;
+        max-width: 100%;
+    }
+
+    .nav-right-icons {
+        width: 100%;
+        justify-content: center;
+        margin: 0;
+        gap: 25px;
+    }
+}
+
+@media (max-width: 380px) {
+    .thrift_logo {
+        width: 120px;
+    }
+
+    .nav-links {
+        gap: 8px;
+    }
+
+    .nav-links > a {
+        padding: 7px 9px;
+        font-size: 11px;
+    }
+}

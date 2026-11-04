@@ -1,0 +1,49 @@
+@import "tailwindcss";
+
+@theme {
+  --color-thrift-50: #f2f8f5;
+  --color-thrift-100: #e1efe8;
+  --color-thrift-200:c5e2d5;
+  --color-thrift-500: #2d8a66;
+  --color-thrift-600: #1e6f50;
+  --color-thrift-700: #145c43;
+  --color-thrift-800: #0e4230;
+  --color-thrift-900: #092d21;
+
+  --color-cream-50: #fdfbf7;
+  --color-cream-100: #faf9f5;
+  --color-cream-200: #f3efe6;
+
+  --font-sans: "Plus Jakarta Sans", sans-serif;
+}
+
+/* Custom styled toggle switch & radio inputs */
+.toggle-checkbox:checked {
+    right: 0;
+    background-color: #145c43;
+}
+.toggle-checkbox:checked + .toggle-label {
+    background-color: #c5e2d5;
+}
+.condition-radio:checked + label {
+    border-color: #145c43;
+    background-color: #f2f8f5;
+    color: #145c43;
+    font-weight: 600;
+    box-shadow: 0 2px 8px rgba(20, 92, 67, 0.12);
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+    width: 6px;
+}
+::-webkit-scrollbar-track {
+    background: #faf9f5;
+}
+::-webkit-scrollbar-thumb {
+    background: #cbd5e1;
+    border-radius: 4px;
+}
+::-webkit-scrollbar-thumb:hover {
+    background: #94a3b8;
+}
