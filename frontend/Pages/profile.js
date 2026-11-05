@@ -1,7 +1,7 @@
 
 // LOGIN PROTECTION
 if (sessionStorage.getItem("thriftLoggedIn") !== "true") {
-    window.location.href = "../frontend2/login.html";
+    window.location.href = "../../frontend2/login.html";
 } else {
 
     let savedUser = JSON.parse(localStorage.getItem("thriftUser")) || {};

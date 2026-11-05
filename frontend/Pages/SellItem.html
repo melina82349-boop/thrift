@@ -6,11 +6,12 @@
     <title>Sell an Item | Thrift</title>
     <!-- FontAwesome for Icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <!-- Google Fonts -->
+    <link rel="stylesheet" href="/frontend/nav.css">
+    <!-- Google Fonts 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-    
+-->
    <link rel="stylesheet" href="../output.css">
     <style>
         /* Custom styled toggle switch & card transitions */
@@ -46,48 +47,45 @@
 </head>
 <body class="bg-cream-100 font-sans text-slate-800 antialiased min-h-screen flex flex-col">
 
-    <!-- NAVIGATION BAR -->
-    <header class="bg-cream-100 border-b border-stone-200/70 sticky top-0 z-50 backdrop-blur-md bg-opacity-90">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="flex items-center justify-between h-20">
-                <!-- Left: Logo -->
-                <div class="flex items-center gap-8">
-                    <a href="home.html" class="flex items-center gap-2 group">
-                        <span class="text-3xl font-extrabold tracking-tight text-thrift-700 group-hover:text-thrift-600 transition">thrift<span class="text-emerald-500">.</span></span>
-                    </a>
-                    
-                    <!-- Links -->
-                    <nav class="hidden md:flex items-center space-x-6 text-sm font-semibold text-slate-700">
-                        <a href="home.html" class="hover:text-thrift-700 transition">Home</a>
-                        <a href="explore.html" class="hover:text-thrift-700 transition">Explore</a>
-                        <a href="categories.html" class="hover:text-thrift-700 transition">Categories</a>
-                        <a href="about.html" class="hover:text-thrift-700 transition">About</a>
-                    </nav>
-                </div>
+ <!-- MAIN NAVBAR -->
+    <nav class="navbar">
 
-                <!-- Right Actions -->
-                <div class="flex items-center gap-4">
-                    <!-- Sell CTA -->
-                    <a href="sell.html" class="inline-flex items-center gap-2 px-5 py-2.5 rounded-full bg-thrift-700 text-white font-semibold text-sm shadow-sm hover:bg-thrift-800 transition-all hover:shadow active:scale-[0.98]">
-                        <i class="fa-solid fa-plus text-xs"></i>
-                        <span>Sell an Item</span>
-                    </a>
+        <a href="home.html" class="thrift_logo">
+            <img src="../images/thrift_logo.png"
+                 alt="THRIFT Logo"
+                 class="thrift_logo">
+        </a>
 
-                    <!-- Cart Button -->
-                    <a href="cart.html" class="relative p-2.5 rounded-full bg-stone-200/60 hover:bg-thrift-100 text-thrift-800 transition flex items-center justify-center w-10 h-10">
-                        <i class="fa-solid fa-basket-shopping text-base"></i>
-                        <span class="absolute -top-1 -right-1 bg-emerald-600 text-white text-[10px] font-bold w-4 h-4 rounded-full flex items-center justify-center border-2 border-white">2</span>
-                    </a>
+        <div class="nav-links">
 
-                    <!-- Profile Button -->
-                    <a href="profile.html" class="p-2.5 rounded-full bg-stone-200/60 hover:bg-thrift-100 text-thrift-800 transition flex items-center justify-center w-10 h-10">
-                        <i class="fa-regular fa-user text-base"></i>
-                    </a>
-                </div>
+            <a href="home.html">Home</a>
+            <a href="categories.html">Categories</a>
+            <a href="explore.html">Explore</a>
+            <a href="about.html">About</a>
+
+            <div class="search-box">
+                <i class="fa-solid fa-magnifying-glass search-icon"></i>
+                <input type="text"
+                       placeholder="Search clothes, books, electronics...">
+                <button type="button" class="search-btn">Search</button>
+            </div>
+
+            <a href="SellItem.html">+ Sell an Item</a>
+
+            <div class="nav-right-icons">
+
+                <a href="cart.html" class="icon-btn cart-btn" title="Cart">
+                    <i class="fa-solid fa-cart-shopping"></i>
+                </a>
+
+                <a href="profile.html" class="icon-btn profile-btn" title="Profile">
+                    <i class="fa-regular fa-user"></i>
+                    <span class="icon-label">Profile</span>
+                </a>
+
             </div>
         </div>
-    </header>
-
+    </nav>
     <!-- HERO HEADER BANNER -->
     <section class="relative bg-gradient-to-r from-emerald-100/70 via-thrift-50 to-emerald-50/50 border-b border-emerald-100/80 overflow-hidden py-10">
         <!-- Floating Eco Leaf Decorations -->

@@ -129,9 +129,8 @@ if (rememberMe.checked) {
 
     successToast.classList.add("show");
 
-    // Redirect after 2 seconds
+   // Redirect after 2 seconds
     setTimeout(function () {
-        window.location.href = "../frontend/profile.html";
-    }, 2000);
-
+        window.location.href = "../frontend/pages/home.html";
+    }, 500);
 });
