@@ -5,10 +5,14 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Thrift</title>
     <link rel="stylesheet" href="../home.css">
+    <link rel="stylesheet" href="../nav.css"
     
     <!-- FontAwesome Library for Icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <script src="../script.js"></script>
+
+    <!-- Link external home.js -->
+    <script src="home.js"></script>
     
 </head>
 <body>
@@ -66,5 +70,56 @@
         <p>Discover pre-loved treasures, save money, and give unused items a new home.</p>
     </div>
 </div>
+
+
+
+<!-- SHOP BY CATEGORY SECTION -->
+    <section class="category-section" id="categories-section">
+        <h2 class="section-title">SHOP BY CATEGORY</h2>
+        
+        <div class="category-grid">
+            <a href="categories.html" class="category-card">
+                <i class="fa-solid fa-shirt"></i>
+                <span>CLOTHING</span>
+            </a>
+            <a href="categories.html" class="category-card">
+                <i class="fa-solid fa-book"></i>
+                <span>BOOKS</span>
+            </a>
+            <a href="categories.html" class="category-card">
+                <i class="fa-solid fa-lamp"></i>
+                <span>HOME & DECOR</span>
+            </a>
+            <a href="categories.html" class="category-card">
+                <i class="fa-solid fa-headphones"></i>
+                <span>ELECTRONICS</span>
+            </a>
+            <a href="categories.html" class="category-card">
+                <i class="fa-solid fa-shoe-prints"></i>
+                <span>FOOTWEAR</span>
+            </a>
+            <a href="categories.html" class="category-card">
+                <i class="fa-solid fa-glasses"></i>
+                <span>ACCESSORIES</span>
+            </a>
+        </div>
+    </section>
+
+
+
+    <!-- EXPLORE NEW ARRIVALS SECTION -->
+    <section class="products-section">
+        <h2 class="section-title">EXPLORE NEW ARRIVALS</h2>
+        <p class="section-subtitle">Product Grid</p>
+
+        <!-- Product Grid starts completely empty. 
+             Only user-uploaded items from SellItem.html will show up here! -->
+        <div id="productGrid" class="product-grid"></div>
+    </section>
+
+    
+
+
+
 </body>
 </html>

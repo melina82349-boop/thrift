@@ -5,13 +5,13 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Sell an Item | Thrift</title>
     <!-- FontAwesome for Icons -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"> 
     <link rel="stylesheet" href="/frontend/nav.css">
-    <!-- Google Fonts 
+    <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
--->
+
    <link rel="stylesheet" href="../output.css">
     <style>
         /* Custom styled toggle switch & card transitions */
@@ -47,48 +47,49 @@
 </head>
 <body class="bg-cream-100 font-sans text-slate-800 antialiased min-h-screen flex flex-col">
 
- <!-- MAIN NAVBAR -->
-    <nav class="navbar">
+<!-- NAVIGATION BAR -->
+<nav class="navbar">
 
-        <a href="home.html" class="thrift_logo">
-            <img src="../images/thrift_logo.png"
-                 alt="THRIFT Logo"
-                 class="thrift_logo">
+    <!-- THRIFT LOGO -->
+    <a href="home.html" class="logo">
+        <img src="../images/thrift_logo.png"
+             alt="Thrift logo"
+             class="thrift_logo" data-page="home">
+    </a>
+    
+<div class="nav-links">
+        <a href="home.html" data-page="Home">Home</a>
+        <a href="categories.html" data-page="categories">Categories</a>
+        <a href="explore.html" data-page="explore">Explore</a>
+        <a href="about.html" data-page="about">About</a>
+        
+
+ <div class="search-box">
+  <i class="fa-solid fa-magnifying-glass search-icon"></i>
+  <input type="text" placeholder="Search clothes, books, electronics..." />
+  <button type="submit" class="search-btn">Search</button>
+</div>
+  <a href="SellItem.html" data-page="sell">+ Sell an Item</a>
+
+<!-- Right Side Icons (Cart & Profile) -->
+    <div class="nav-right-icons">
+        <!-- Cart Icon with Notification Badge -->
+        <a href="cart.html" data-page="cart" class="icon-btn cart-btn" title="Cart">
+            <i class="fa-solid fa-cart-shopping"></i>
+            <span class="badge"></span>
         </a>
 
-        <div class="nav-links">
+        <!-- Profile Icon -->
+        <a href="profile.html" data-page="profile" class="icon-btn profile-btn" title="Profile">
+    <i class="fa-regular fa-user"></i>
+    <span class="icon-label">Profile</span>
+</a>
+    </div>
+</div>
+</nav>
 
-            <a href="home.html">Home</a>
-            <a href="categories.html">Categories</a>
-            <a href="explore.html">Explore</a>
-            <a href="about.html">About</a>
-
-            <div class="search-box">
-                <i class="fa-solid fa-magnifying-glass search-icon"></i>
-                <input type="text"
-                       placeholder="Search clothes, books, electronics...">
-                <button type="button" class="search-btn">Search</button>
-            </div>
-
-            <a href="SellItem.html">+ Sell an Item</a>
-
-            <div class="nav-right-icons">
-
-                <a href="cart.html" class="icon-btn cart-btn" title="Cart">
-                    <i class="fa-solid fa-cart-shopping"></i>
-                </a>
-
-                <a href="profile.html" class="icon-btn profile-btn" title="Profile">
-                    <i class="fa-regular fa-user"></i>
-                    <span class="icon-label">Profile</span>
-                </a>
-
-            </div>
-        </div>
-    </nav>
     <!-- HERO HEADER BANNER -->
     <section class="relative bg-gradient-to-r from-emerald-100/70 via-thrift-50 to-emerald-50/50 border-b border-emerald-100/80 overflow-hidden py-10">
-        <!-- Floating Eco Leaf Decorations -->
         <div class="absolute -top-4 right-10 text-emerald-300 opacity-40 text-8xl pointer-events-none">
             <i class="fa-solid fa-leaf"></i>
         </div>
@@ -103,7 +104,6 @@
                     <p class="text-slate-600 font-medium text-base sm:text-lg mt-1">Give your unused belongings a second life.</p>
                 </div>
                 
-                <!-- Visual Box Graphic Component -->
                 <div class="hidden md:flex items-center gap-3 bg-white/70 backdrop-blur border border-emerald-200/80 rounded-2xl p-3 px-5 shadow-sm">
                     <div class="w-12 h-12 rounded-xl bg-thrift-100 text-thrift-700 flex items-center justify-center text-xl">
                         <i class="fa-solid fa-box-open"></i>
@@ -127,34 +127,33 @@
                 <!-- STEPPER BAR -->
                 <div class="bg-white rounded-2xl p-4 sm:p-5 border border-stone-200 shadow-sm">
                     <div class="grid grid-cols-4 gap-2 text-center relative">
-                        <!-- Connecting Line -->
                         <div class="absolute top-4 left-[12%] right-[12%] h-[2px] bg-slate-200 -z-0 hidden sm:block"></div>
                         
-                        <!-- Step 1 (Active) -->
+                        <!-- Step 1 -->
                         <div class="relative z-10 flex flex-col items-center">
-                            <div class="w-8 h-8 rounded-full bg-thrift-700 text-white font-bold flex items-center justify-center text-sm shadow-sm ring-4 ring-thrift-100">1</div>
-                            <span class="text-xs font-bold text-slate-800 mt-2">Basic Info</span>
+                            <div id="step1Dot" class="w-8 h-8 rounded-full bg-slate-200 text-slate-600 font-bold flex items-center justify-center text-sm transition-all">1</div>
+                            <span id="step1Text" class="text-xs font-medium text-slate-500 mt-2">Basic Info</span>
                         </div>
                         <!-- Step 2 -->
                         <div class="relative z-10 flex flex-col items-center">
-                            <div class="w-8 h-8 rounded-full bg-slate-200 text-slate-600 font-bold flex items-center justify-center text-sm">2</div>
-                            <span class="text-xs font-medium text-slate-500 mt-2">Upload Media</span>
+                            <div id="step2Dot" class="w-8 h-8 rounded-full bg-slate-200 text-slate-600 font-bold flex items-center justify-center text-sm transition-all">2</div>
+                            <span id="step2Text" class="text-xs font-medium text-slate-500 mt-2">Upload Media</span>
                         </div>
                         <!-- Step 3 -->
                         <div class="relative z-10 flex flex-col items-center">
-                            <div class="w-8 h-8 rounded-full bg-slate-200 text-slate-600 font-bold flex items-center justify-center text-sm">3</div>
-                            <span class="text-xs font-medium text-slate-500 mt-2">Set Price</span>
+                            <div id="step3Dot" class="w-8 h-8 rounded-full bg-slate-200 text-slate-600 font-bold flex items-center justify-center text-sm transition-all">3</div>
+                            <span id="step3Text" class="text-xs font-medium text-slate-500 mt-2">Set Price</span>
                         </div>
                         <!-- Step 4 -->
                         <div class="relative z-10 flex flex-col items-center">
-                            <div class="w-8 h-8 rounded-full bg-slate-200 text-slate-600 font-bold flex items-center justify-center text-sm">4</div>
-                            <span class="text-xs font-medium text-slate-500 mt-2">Review</span>
+                            <div id="step4Dot" class="w-8 h-8 rounded-full bg-slate-200 text-slate-600 font-bold flex items-center justify-center text-sm transition-all">4</div>
+                            <span id="step4Text" class="text-xs font-medium text-slate-500 mt-2">Review</span>
                         </div>
                     </div>
                 </div>
 
                 <!-- MAIN FORM CARD -->
-                <form id="sellItemForm" onsubmit="event.preventDefault(); alert('Success! Your listing review is complete.');" class="bg-white rounded-2xl p-6 sm:p-8 border border-stone-200 shadow-sm space-y-8">
+                <form id="sellItemForm" class="bg-white rounded-2xl p-6 sm:p-8 border border-stone-200 shadow-sm space-y-8">
                     
                     <!-- SECTION 1: BASIC INFORMATION -->
                     <div class="space-y-4">
@@ -172,9 +171,9 @@
                         <div>
                             <div class="flex justify-between items-center mb-1.5">
                                 <label for="inputTitle" class="block text-sm font-semibold text-slate-700">Product Title <span class="text-emerald-600">*</span></label>
-                                <span class="text-xs text-slate-400"><span id="titleCharCount">21</span>/80</span>
+                                <span class="text-xs text-slate-400"><span id="titleCharCount">0</span>/80</span>
                             </div>
-                            <input type="text" id="inputTitle" value="Classic Denim Jacket" maxlength="80" required
+                            <input type="text" id="inputTitle" value="" maxlength="80" required
                                 class="w-full px-4 py-3 rounded-xl border border-slate-200 focus:border-thrift-700 focus:ring-2 focus:ring-thrift-100 outline-none text-slate-800 text-sm font-medium transition placeholder:text-slate-400"
                                 placeholder="e.g. Vintage Leather Bag, Sony Headphones">
                         </div>
@@ -184,7 +183,8 @@
                             <label for="inputCategory" class="block text-sm font-semibold text-slate-700 mb-1.5">Category <span class="text-emerald-600">*</span></label>
                             <div class="relative">
                                 <select id="inputCategory" required class="w-full px-4 py-3 rounded-xl border border-slate-200 focus:border-thrift-700 focus:ring-2 focus:ring-thrift-100 outline-none text-slate-800 text-sm font-medium appearance-none bg-white transition cursor-pointer">
-                                    <option value="Clothing" selected>Clothing</option>
+                                    <option value="" disabled selected>Select a category...</option>
+                                    <option value="Clothing">Clothing</option>
                                     <option value="Electronics">Electronics</option>
                                     <option value="Furniture">Furniture</option>
                                     <option value="Books">Books</option>
@@ -201,11 +201,11 @@
                         <div>
                             <div class="flex justify-between items-center mb-1.5">
                                 <label for="inputDescription" class="block text-sm font-semibold text-slate-700">Description <span class="text-emerald-600">*</span></label>
-                                <span class="text-xs text-slate-400"><span id="descCharCount">45</span>/1000</span>
+                                <span class="text-xs text-slate-400"><span id="descCharCount">0</span>/1000</span>
                             </div>
                             <textarea id="inputDescription" rows="3" maxlength="1000" required
                                 class="w-full px-4 py-3 rounded-xl border border-slate-200 focus:border-thrift-700 focus:ring-2 focus:ring-thrift-100 outline-none text-slate-800 text-sm font-medium transition placeholder:text-slate-400 resize-y"
-                                placeholder="Describe your item in detail (condition, sizing, defects, etc.)">Stylish and comfortable denim jacket. Barely used, in good condition.</textarea>
+                                placeholder="Describe your item in detail (condition, sizing, defects, etc.)"></textarea>
                         </div>
                     </div>
 
@@ -224,12 +224,12 @@
                         <div class="grid grid-cols-1 sm:grid-cols-3 gap-3">
                             <!-- Photos Upload Box -->
                             <label class="border-2 border-dashed border-emerald-300 hover:border-thrift-700 bg-thrift-50/50 hover:bg-thrift-50 p-4 rounded-xl flex flex-col items-center justify-center text-center cursor-pointer transition group">
-                                <input type="file" id="imageInput" accept="image/*" multiple class="hidden">
+                                <input type="file" id="imageInput" accept="image/*" class="hidden">
                                 <div class="w-10 h-10 rounded-full bg-white text-thrift-700 flex items-center justify-center text-base shadow-sm mb-2 group-hover:scale-110 transition">
                                     <i class="fa-solid fa-images"></i>
                                 </div>
-                                <span class="text-xs font-bold text-slate-800">Add Photos</span>
-                                <span class="text-[11px] text-slate-500 mt-0.5">Up to 8 photos</span>
+                                <span class="text-xs font-bold text-slate-800">Add Photo</span>
+                                <span class="text-[11px] text-slate-500 mt-0.5">Upload product image</span>
                             </label>
 
                             <!-- Video Upload Box -->
@@ -279,7 +279,7 @@
                                 </label>
                             </div>
                             <div>
-                                <input type="radio" name="condition" id="condGood" value="Good" checked class="hidden condition-radio">
+                                <input type="radio" name="condition" id="condGood" value="Good" class="hidden condition-radio">
                                 <label for="condGood" class="flex items-center justify-center py-2.5 px-3 rounded-xl border border-slate-200 text-xs font-medium text-slate-700 text-center cursor-pointer hover:border-thrift-500 transition">
                                     Good
                                 </label>
@@ -311,11 +311,10 @@
                                 <label for="inputPrice" class="block text-sm font-semibold text-slate-700 mb-1.5">Price (Rs.) <span class="text-emerald-600">*</span></label>
                                 <div class="relative">
                                     <span class="absolute left-3.5 top-1/2 -translate-y-1/2 font-bold text-slate-400 text-sm">Rs.</span>
-                                    <input type="number" id="inputPrice" value="1200" min="0" required
+                                    <input type="number" id="inputPrice" value="" min="0" required
                                         class="w-full pl-12 pr-4 py-3 rounded-xl border border-slate-200 focus:border-thrift-700 focus:ring-2 focus:ring-thrift-100 outline-none text-slate-800 text-sm font-bold transition"
                                         placeholder="0">
                                 </div>
-                                <span class="text-[11px] text-slate-400 mt-1 block">Suggested: Rs. 1,000 – 1,800</span>
                             </div>
 
                             <!-- Negotiation Toggle -->
@@ -325,7 +324,7 @@
                                     <span class="text-[11px] text-slate-500">Allow buyers to make offers</span>
                                 </div>
                                 <label class="relative inline-flex items-center cursor-pointer">
-                                    <input type="checkbox" id="inputNegotiable" checked class="sr-only peer">
+                                    <input type="checkbox" id="inputNegotiable" class="sr-only peer">
                                     <div class="w-11 h-6 bg-slate-200 peer-focus:outline-none rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-slate-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:bg-thrift-700"></div>
                                 </label>
                             </div>
@@ -339,7 +338,8 @@
                                     <i class="fa-solid fa-location-dot text-sm"></i>
                                 </span>
                                 <select id="inputLocation" required class="w-full pl-10 pr-4 py-3 rounded-xl border border-slate-200 focus:border-thrift-700 focus:ring-2 focus:ring-thrift-100 outline-none text-slate-800 text-sm font-medium appearance-none bg-white transition cursor-pointer">
-                                    <option value="Kathmandu" selected>Kathmandu, Nepal</option>
+                                    <option value="" disabled selected>Select location...</option>
+                                    <option value="Kathmandu">Kathmandu, Nepal</option>
                                     <option value="Lalitpur">Lalitpur, Nepal</option>
                                     <option value="Bhaktapur">Bhaktapur, Nepal</option>
                                     <option value="Pokhara">Pokhara, Nepal</option>
@@ -352,11 +352,11 @@
                         </div>
                     </div>
 
-                    <!-- SUBMIT BUTTON -->
+                    <!-- UPLOAD BUTTON -->
                     <div class="pt-4 border-t border-slate-100">
                         <button type="submit" class="w-full bg-thrift-700 hover:bg-thrift-800 text-white font-bold py-3.5 px-6 rounded-xl shadow-md hover:shadow-lg transition flex items-center justify-center gap-2 group active:scale-[0.99]">
-                            <span>Next: Review Your Listing</span>
-                            <i class="fa-solid fa-arrow-right text-xs group-hover:translate-x-1 transition"></i>
+                            <span>Upload Product to Thrift</span>
+                            <i class="fa-solid fa-cloud-arrow-up text-sm group-hover:-translate-y-0.5 transition"></i>
                         </button>
                     </div>
 
@@ -368,7 +368,6 @@
                 
                 <!-- PREVIEW CONTAINER CARD -->
                 <div class="bg-white rounded-2xl p-5 border border-stone-200 shadow-sm space-y-4">
-                    <!-- Section Header -->
                     <div class="flex items-center justify-between border-b border-slate-100 pb-3">
                         <div class="flex items-center gap-2">
                             <span class="w-2.5 h-2.5 rounded-full bg-emerald-500 animate-pulse"></span>
@@ -378,23 +377,21 @@
                     </div>
                     <p class="text-xs text-slate-500">Here is how your item card will appear to prospective buyers on Thrift:</p>
 
-                    <!-- PRODUCT CARD PREVIEW (THRIFT DESIGN LANGUAGE) -->
+                    <!-- PRODUCT CARD PREVIEW -->
                     <div class="bg-white rounded-2xl border border-stone-200 overflow-hidden shadow-sm hover:shadow-md transition">
                         <!-- Image Container -->
-                        <div class="relative h-64 w-full bg-slate-100 overflow-hidden group">
+                        <div class="relative h-64 w-full bg-slate-100 flex items-center justify-center overflow-hidden group">
                             <img id="previewImage" 
-                                 src="https://images.unsplash.com/photo-1576995853123-5a10305d93c0?auto=format&fit=crop&w=800&q=80" 
+                                 src="" 
                                  alt="Live Product Preview" 
-                                 class="w-full h-full object-cover group-hover:scale-105 transition duration-500">
+                                 class="w-full h-full object-cover group-hover:scale-105 transition duration-500 hidden">
+                            <div id="imagePlaceholder" class="flex flex-col items-center justify-center text-slate-400">
+                                <i class="fa-solid fa-image text-3xl mb-1"></i>
+                                <span class="text-xs">No image uploaded</span>
+                            </div>
                             
-                            <!-- Wishlist Heart Icon -->
-                            <button class="absolute top-3 right-3 w-9 h-9 rounded-full bg-white/90 backdrop-blur text-slate-600 hover:text-red-500 flex items-center justify-center transition shadow-sm">
-                                <i class="fa-regular fa-heart text-sm"></i>
-                            </button>
-
                             <!-- Condition Badge Pill -->
-                            <span id="previewConditionBadge" class="absolute top-3 left-3 bg-emerald-100 text-emerald-800 text-[11px] font-bold px-2.5 py-1 rounded-md border border-emerald-200/60 shadow-sm">
-                                Good
+                            <span id="previewConditionBadge" class="absolute top-3 left-3 bg-emerald-100 text-emerald-800 text-[11px] font-bold px-2.5 py-1 rounded-md border border-emerald-200/60 shadow-sm hidden">
                             </span>
                         </div>
 
@@ -402,42 +399,25 @@
                         <div class="p-4 space-y-3">
                             <div class="flex justify-between items-start">
                                 <div>
-                                    <h4 id="previewTitle" class="font-bold text-slate-900 text-base leading-snug line-clamp-1">Classic Denim Jacket</h4>
+                                    <h4 id="previewTitle" class="font-bold text-slate-400 text-base leading-snug line-clamp-1 italic">Title will appear here...</h4>
                                     <div class="flex items-center gap-1.5 text-xs text-slate-500 mt-1">
                                         <i class="fa-solid fa-location-dot text-slate-400"></i>
-                                        <span id="previewLocation">Kathmandu</span>
+                                        <span id="previewLocation">Location</span>
                                     </div>
                                 </div>
                             </div>
 
                             <!-- Price Display -->
                             <div class="flex items-baseline gap-1.5">
-                                <span class="text-xl font-extrabold text-thrift-700">Rs. <span id="previewPrice">1,200</span></span>
-                                <span id="previewNegotiable" class="text-[10px] font-bold text-emerald-700 bg-emerald-50 px-2 py-0.5 rounded border border-emerald-200/80">Negotiable</span>
+                                <span class="text-xl font-extrabold text-thrift-700">Rs. <span id="previewPrice">0</span></span>
+                                <span id="previewNegotiable" class="text-[10px] font-bold text-emerald-700 bg-emerald-50 px-2 py-0.5 rounded border border-emerald-200/80 hidden">Negotiable</span>
                             </div>
 
                             <!-- Description Snippet -->
-                            <p id="previewDescription" class="text-xs text-slate-600 line-clamp-2 leading-relaxed bg-slate-50 p-2.5 rounded-lg border border-slate-100">
-                                Stylish and comfortable denim jacket. Barely used, in good condition...
+                            <p id="previewDescription" class="text-xs text-slate-400 italic line-clamp-2 leading-relaxed bg-slate-50 p-2.5 rounded-lg border border-slate-100">
+                                Item description will appear here...
                             </p>
-
-                            <!-- View Details Button -->
-                            <button class="w-full border border-thrift-700 text-thrift-700 font-bold py-2 px-4 rounded-xl text-xs hover:bg-thrift-700 hover:text-white transition flex items-center justify-center gap-1.5">
-                                <span>View Details</span>
-                                <i class="fa-solid fa-arrow-right text-[10px]"></i>
-                            </button>
                         </div>
-                    </div>
-                </div>
-
-                <!-- SAFETY BADGE -->
-                <div class="bg-emerald-50/70 border border-emerald-200/70 rounded-2xl p-4 flex items-center gap-3 text-emerald-900">
-                    <div class="w-9 h-9 rounded-xl bg-emerald-100 text-emerald-700 flex items-center justify-center shrink-0">
-                        <i class="fa-solid fa-shield-halved text-base"></i>
-                    </div>
-                    <div>
-                        <h5 class="text-xs font-bold">Your information is safe with us</h5>
-                        <p class="text-[11px] text-emerald-700 mt-0.5">We never share your personal contact details publicly without authorization.</p>
                     </div>
                 </div>
 
@@ -462,15 +442,17 @@
         </div>
     </footer>
 
-    <!-- INTERACTIVE JAVASCRIPT REAL-TIME SYNCHRONIZATION -->
+    <!-- INTERACTIVE JAVASCRIPT REAL-TIME SYNCHRONIZATION & UPLOAD LOGIC -->
     <script>
         // DOM Elements
         const inputTitle = document.getElementById('inputTitle');
         const inputDescription = document.getElementById('inputDescription');
         const inputPrice = document.getElementById('inputPrice');
         const inputLocation = document.getElementById('inputLocation');
+        const inputCategory = document.getElementById('inputCategory');
         const inputNegotiable = document.getElementById('inputNegotiable');
         const imageInput = document.getElementById('imageInput');
+        const sellItemForm = document.getElementById('sellItemForm');
         
         // Preview Elements
         const previewTitle = document.getElementById('previewTitle');
@@ -480,24 +462,97 @@
         const previewConditionBadge = document.getElementById('previewConditionBadge');
         const previewNegotiable = document.getElementById('previewNegotiable');
         const previewImage = document.getElementById('previewImage');
+        const imagePlaceholder = document.getElementById('imagePlaceholder');
 
         // Counters
         const titleCharCount = document.getElementById('titleCharCount');
         const descCharCount = document.getElementById('descCharCount');
 
+        // Stepper Elements
+        const step1Dot = document.getElementById('step1Dot');
+        const step1Text = document.getElementById('step1Text');
+        const step2Dot = document.getElementById('step2Dot');
+        const step2Text = document.getElementById('step2Text');
+        const step3Dot = document.getElementById('step3Dot');
+        const step3Text = document.getElementById('step3Text');
+        const step4Dot = document.getElementById('step4Dot');
+        const step4Text = document.getElementById('step4Text');
+
+        // Function to update Stepper Status Dynamically
+        function updateStepper() {
+            // Step 1: Basic Info
+            if (inputTitle.value.trim() !== '' && inputDescription.value.trim() !== '' && inputCategory.value !== '') {
+                setStepActive(step1Dot, step1Text, true);
+            } else {
+                setStepActive(step1Dot, step1Text, false);
+            }
+
+            // Step 2: Media
+            if (imageInput.files && imageInput.files.length > 0) {
+                setStepActive(step2Dot, step2Text, true);
+            } else {
+                setStepActive(step2Dot, step2Text, false);
+            }
+
+            // Step 3: Condition selected
+            const selectedCond = document.querySelector('input[name="condition"]:checked');
+            if (selectedCond) {
+                setStepActive(step3Dot, step3Text, true);
+            } else {
+                setStepActive(step3Dot, step3Text, false);
+            }
+
+            // Step 4: Price & Location
+            if (inputPrice.value !== '' && parseFloat(inputPrice.value) >= 0 && inputLocation.value !== '') {
+                setStepActive(step4Dot, step4Text, true);
+            } else {
+                setStepActive(step4Dot, step4Text, false);
+            }
+        }
+
+        function setStepActive(dot, text, isActive) {
+            if (isActive) {
+                dot.className = "w-8 h-8 rounded-full bg-thrift-700 text-white font-bold flex items-center justify-center text-sm shadow-sm ring-4 ring-thrift-100 transition-all";
+                text.className = "text-xs font-bold text-slate-800 mt-2";
+            } else {
+                dot.className = "w-8 h-8 rounded-full bg-slate-200 text-slate-600 font-bold flex items-center justify-center text-sm transition-all";
+                text.className = "text-xs font-medium text-slate-500 mt-2";
+            }
+        }
+
         // Real-Time Title Handler
         inputTitle.addEventListener('input', (e) => {
             const val = e.target.value;
-            previewTitle.textContent = val.trim() || 'Untitled Product';
+            if (val.trim()) {
+                previewTitle.textContent = val.trim();
+                previewTitle.classList.remove('italic', 'text-slate-400');
+                previewTitle.classList.add('text-slate-900');
+            } else {
+                previewTitle.textContent = 'Title will appear here...';
+                previewTitle.classList.add('italic', 'text-slate-400');
+                previewTitle.classList.remove('text-slate-900');
+            }
             titleCharCount.textContent = val.length;
+            updateStepper();
         });
 
         // Real-Time Description Handler
         inputDescription.addEventListener('input', (e) => {
             const val = e.target.value;
-            previewDescription.textContent = val.trim() || 'No description provided yet.';
+            if (val.trim()) {
+                previewDescription.textContent = val.trim();
+                previewDescription.classList.remove('italic', 'text-slate-400');
+                previewDescription.classList.add('text-slate-600');
+            } else {
+                previewDescription.textContent = 'Item description will appear here...';
+                previewDescription.classList.add('italic', 'text-slate-400');
+                previewDescription.classList.remove('text-slate-600');
+            }
             descCharCount.textContent = val.length;
+            updateStepper();
         });
+
+        inputCategory.addEventListener('change', updateStepper);
 
         // Real-Time Price Handler
         inputPrice.addEventListener('input', (e) => {
@@ -507,11 +562,13 @@
             } else {
                 previewPrice.textContent = '0';
             }
+            updateStepper();
         });
 
         // Real-Time Location Handler
         inputLocation.addEventListener('change', (e) => {
-            previewLocation.textContent = e.target.value;
+            previewLocation.textContent = e.target.value || 'Location';
+            updateStepper();
         });
 
         // Real-Time Negotiable Toggle
@@ -527,6 +584,8 @@
         document.querySelectorAll('input[name="condition"]').forEach((radio) => {
             radio.addEventListener('change', (e) => {
                 previewConditionBadge.textContent = e.target.value;
+                previewConditionBadge.classList.remove('hidden');
+                updateStepper();
             });
         });
 
@@ -537,10 +596,43 @@
                 const reader = new FileReader();
                 reader.onload = function(event) {
                     previewImage.src = event.target.result;
+                    previewImage.classList.remove('hidden');
+                    imagePlaceholder.classList.add('hidden');
+                    updateStepper();
                 };
                 reader.readAsDataURL(file);
             }
         });
+
+        // Form Submit & LocalStorage Upload Handler
+        sellItemForm.addEventListener('submit', function(e) {
+            e.preventDefault();
+
+            const selectedCond = document.querySelector('input[name="condition"]:checked');
+
+            const newProduct = {
+                id: Date.now(),
+                title: inputTitle.value.trim(),
+                category: inputCategory.value,
+                description: inputDescription.value.trim(),
+                price: parseFloat(inputPrice.value) || 0,
+                location: inputLocation.value,
+                condition: selectedCond ? selectedCond.value : 'Good',
+                negotiable: inputNegotiable.checked,
+                image: previewImage.src || '',
+                createdAt: new Date().toISOString()
+            };
+
+            let products = JSON.parse(localStorage.getItem('thrift_products')) || [];
+            products.unshift(newProduct);
+            localStorage.setItem('thrift_products', JSON.stringify(products));
+
+            alert('Success! Your product has been uploaded to Thrift.');
+            window.location.href = 'home.html';
+        });
+
+        // Run initial stepper check
+        updateStepper();
     </script>
 </body>
 </html>

@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Categories | Thrift</title>
+    <!-- FontAwesome for Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"> 
+    <link rel="stylesheet" href="/frontend/nav.css">
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../output.css">
+</head>
+<body class="bg-cream-100 font-sans text-slate-800 antialiased min-h-screen flex flex-col">
+
+<!-- NAVIGATION BAR -->
+<nav class="navbar">
+    <a href="home.html" class="logo">
+        <img src="../images/thrift_logo.png" alt="Thrift logo" class="thrift_logo" data-page="home">
+    </a>
+    
+    <div class="nav-links">
+        <a href="home.html" data-page="Home">Home</a>
+        <a href="categories.html" data-page="categories">Categories</a>
+        <a href="explore.html" data-page="explore">Explore</a>
+        <a href="about.html" data-page="about">About</a>
+        
+        <div class="search-box">
+            <i class="fa-solid fa-magnifying-glass search-icon"></i>
+            <input type="text" placeholder="Search clothes, books, electronics..." />
+            <button type="submit" class="search-btn">Search</button>
+        </div>
+        <a href="SellItem.html" data-page="sell">+ Sell an Item</a>
+
+        <div class="nav-right-icons">
+            <a href="cart.html" data-page="cart" class="icon-btn cart-btn" title="Cart">
+                <i class="fa-solid fa-cart-shopping"></i>
+                <span class="badge"></span>
+            </a>
+            <a href="profile.html" data-page="profile" class="icon-btn profile-btn" title="Profile">
+                <i class="fa-regular fa-user"></i>
+                <span class="icon-label">Profile</span>
+            </a>
+        </div>
+    </div>
+</nav>
+
+    <!-- HEADER BANNER -->
+    <section class="bg-gradient-to-r from-emerald-100/70 via-thrift-50 to-emerald-50/50 border-b border-emerald-100/80 py-8">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+            <h1 class="text-3xl font-extrabold text-slate-900">Product Categories</h1>
+            <p class="text-slate-600 text-sm mt-1">Browse items filtered by category</p>
+            
+            <!-- Quick Category Filter Links -->
+            <div class="flex flex-wrap justify-center gap-3 mt-6">
+                <a href="categories.html?cat=all" class="category-link bg-white border border-slate-200 text-slate-700 font-semibold px-4 py-2 rounded-xl text-xs hover:bg-thrift-700 hover:text-white transition shadow-sm" data-category="all">All Items</a>
+                <a href="categories.html?cat=clothing" class="category-link bg-white border border-slate-200 text-slate-700 font-semibold px-4 py-2 rounded-xl text-xs hover:bg-thrift-700 hover:text-white transition shadow-sm" data-category="Clothing">Clothing</a>
+                <a href="categories.html?cat=electronics" class="category-link bg-white border border-slate-200 text-slate-700 font-semibold px-4 py-2 rounded-xl text-xs hover:bg-thrift-700 hover:text-white transition shadow-sm" data-category="Electronics">Electronics</a>
+                <a href="categories.html?cat=furniture" class="category-link bg-white border border-slate-200 text-slate-700 font-semibold px-4 py-2 rounded-xl text-xs hover:bg-thrift-700 hover:text-white transition shadow-sm" data-category="Furniture">Furniture</a>
+                <a href="categories.html?cat=books" class="category-link bg-white border border-slate-200 text-slate-700 font-semibold px-4 py-2 rounded-xl text-xs hover:bg-thrift-700 hover:text-white transition shadow-sm" data-category="Books">Books</a>
+                <a href="categories.html?cat=household" class="category-link bg-white border border-slate-200 text-slate-700 font-semibold px-4 py-2 rounded-xl text-xs hover:bg-thrift-700 hover:text-white transition shadow-sm" data-category="Household">Household</a>
+                <a href="categories.html?cat=accessories" class="category-link bg-white border border-slate-200 text-slate-700 font-semibold px-4 py-2 rounded-xl text-xs hover:bg-thrift-700 hover:text-white transition shadow-sm" data-category="Accessories">Accessories</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- MAIN CATEGORY PRODUCT GRID SECTION -->
+    <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 flex-1 w-full">
+        <div id="categoryProductGrid" class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
+            <!-- Dynamically loaded products and category items appear here -->
+        </div>
+    </main>
+
+    <!-- FOOTER -->
+    <footer class="bg-thrift-900 text-slate-300 mt-auto text-xs py-8">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col sm:flex-row items-center justify-between gap-4">
+            <div class="flex items-center gap-2">
+                <span class="text-xl font-bold text-white">thrift.</span>
+                <span class="text-slate-500">© 2026 THRIFT Inc. All rights reserved.</span>
+            </div>
+            <div class="flex space-x-6 text-slate-400">
+                <a href="#" class="hover:text-white transition">About</a>
+                <a href="#" class="hover:text-white transition">Help Center</a>
+                <a href="#" class="hover:text-white transition">Terms & Conditions</a>
+                <a href="#" class="hover:text-white transition">Privacy Policy</a>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Link categories.js exclusively to this page -->
+    <script src="categories.js"></script>
+</body>
+</html>

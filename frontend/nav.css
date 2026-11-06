@@ -14,7 +14,7 @@
     width: 100%;
     height: 65px;
     display: flex;
-    justify-content: flex-end;
+    justify-content: space-between; /* Perfectly spaces logo (left) and links (right) */
     align-items: center;
     padding: 0 40px;
     background-color: #faf9f5;
@@ -22,28 +22,27 @@
 
 /* LOGO */
 
+/* Fixed logo container so it never shifts the navbar */
 .navbar .logo {
     display: flex;
     align-items: center;
     text-decoration: none;
+    flex-shrink: 0;      /* Prevents the logo container from shrinking or squishing */
 }
 
 .thrift_logo {
-    width: 200px;
+    width: 180px;        /* Your preferred larger size */
     height: auto;
-    margin-right: auto;
-    margin-left: -50px;
+    object-fit: contain;
+    margin: 0;           /* Zero out any shifting margins */
     display: block;
 }
-
 /* NAVIGATION LINKS */
 
 .nav-links {
     display: flex;
-    justify-content: flex-end;
     align-items: center;
     gap: 30px;
-    width: 100%;
     margin: 0;
 }
 
@@ -175,6 +174,7 @@
     .thrift_logo {
         width: 150px;
         margin-left: -20px;
+      
     }
 
     .nav-links {
@@ -193,15 +193,19 @@
         padding: 12px 15px;
     }
 
-    .navbar .logo {
-        justify-content: center;
-        width: 100%;
-    }
+.navbar .logo {
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+}
 
-    .thrift_logo {
-        width: 140px;
-        margin: 0;
-    }
+.thrift_logo {
+    height: 38px;        /* Controls the exact height in the navbar */
+    width: auto;         /* Keeps the image from stretching */
+    max-width: 140px;    /* Safeguard limit */
+    object-fit: contain;
+    margin: 0;
+}
 
     .nav-links {
         justify-content: center;
