@@ -5,56 +5,64 @@
 document.addEventListener("DOMContentLoaded", function () {
     const categoryGrid = document.getElementById("categoryProductGrid") || document.getElementById("productGrid");
 
-    // 1. Load user-uploaded items from localStorage and append them to the category page if needed
+    // 1. Load user-uploaded items from localStorage
     const savedProducts = JSON.parse(localStorage.getItem("thrift_products")) || [];
     
-    if (categoryGrid && savedProducts.length > 0) {
+    if (categoryGrid) {
+        categoryGrid.innerHTML = "";
+
         let dynamicHTML = "";
         savedProducts.forEach(product => {
+            const itemCategory = product.category ? product.category.trim() : "";
+
             dynamicHTML += `
-                <div class="product-card" data-category="${product.category.toLowerCase()}" style="display: block;">
-                    <img src="${product.image}" alt="${product.title}">
-                    <h3>${product.title}</h3>
-                    <p class="price">Rs. ${product.price.toLocaleString()}</p>
-                    <a href="product-details.html?id=${product.id}" class="details-btn">View Details</a>
+                <div class="product-card bg-white rounded-2xl border border-stone-200 overflow-hidden shadow-sm hover:shadow-md transition" 
+                     data-category="${itemCategory}">
+                    <div class="relative h-64 w-full bg-slate-100 overflow-hidden group">
+                        <img src="${product.image}" alt="${product.title}" class="w-full h-full object-cover group-hover:scale-105 transition duration-500">
+                        <span class="absolute top-3 left-3 bg-emerald-100 text-emerald-800 text-[11px] font-bold px-2.5 py-1 rounded-md border border-emerald-200/60 shadow-sm">
+                            ${product.condition}
+                        </span>
+                    </div>
+                    <div class="p-4 space-y-3">
+                        <div>
+                            <h4 class="font-bold text-slate-900 text-base leading-snug line-clamp-1">${product.title}</h4>
+                            <div class="flex items-center gap-1.5 text-xs text-slate-500 mt-1">
+                                <i class="fa-solid fa-location-dot text-slate-400"></i>
+                                <span>${product.location}</span>
+                            </div>
+                        </div>
+                        <div class="flex items-baseline gap-1.5">
+                            <span class="text-xl font-extrabold text-thrift-700">Rs. ${product.price.toLocaleString()}</span>
+                            ${product.negotiable ? '<span class="text-[10px] font-bold text-emerald-700 bg-emerald-50 px-2 py-0.5 rounded border border-emerald-200/80">Negotiable</span>' : ''}
+                        </div>
+                        <p class="text-xs text-slate-600 line-clamp-2 leading-relaxed bg-slate-50 p-2.5 rounded-lg border border-slate-100">
+                            ${product.description}
+                        </p>
+                    </div>
                 </div>
             `;
         });
-        categoryGrid.insertAdjacentHTML("afterbegin", dynamicHTML);
+        categoryGrid.innerHTML = dynamicHTML;
     }
 
-    // 2. Check URL parameters on page load (e.g., categories.html?cat=electronics)
+    // 2. Immediately filter items based on URL parameter on page load
     const urlParams = new URLSearchParams(window.location.search);
     const selectedCategory = urlParams.get("cat");
 
-    if (selectedCategory) {
-        filterByCategory(selectedCategory.toLowerCase());
-    }
+    const productCards = document.querySelectorAll(".product-card");
 
-    // 3. Function to filter product cards based on category
-    function filterByCategory(categoryName) {
-        const productCards = document.querySelectorAll(".product-card");
-
+    if (selectedCategory && selectedCategory.toLowerCase() !== "all") {
         productCards.forEach(card => {
-            const productCategory = (card.getAttribute("data-category") || "").toLowerCase();
-
-            if (categoryName === "all" || productCategory === categoryName) {
+            const cardCategory = (card.getAttribute("data-category") || "").trim();
+            if (cardCategory.toLowerCase() === selectedCategory.toLowerCase()) {
                 card.style.display = "block";
             } else {
                 card.style.display = "none";
             }
         });
+    } else {
+        // Show all if no category or 'all' is selected
+        productCards.forEach(card => card.style.display = "block");
     }
-
-    // 4. Optional: Listen for clicks on category buttons/links if you have them on the page
-    const categoryButtons = document.querySelectorAll(".category-btn, .category-link");
-    categoryButtons.forEach(button => {
-        button.addEventListener("click", function (e) {
-            e.preventDefault();
-            const cat = this.getAttribute("data-category");
-            if (cat) {
-                filterByCategory(cat.toLowerCase());
-            }
-        });
-    });
 });
