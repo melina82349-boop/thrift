@@ -3,50 +3,189 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <link rel="stylesheet" href="../nav.css">
+    <title>About Us | Thrift</title>
+    <!-- FontAwesome for Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"> 
+    <link rel="stylesheet" href="/frontend/nav.css">
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../output.css">
 </head>
-<body>
-    <!-- MAIN NAVBAR -->
-    <nav class="navbar">
+<body class="bg-cream-100 font-sans text-slate-800 antialiased min-h-screen flex flex-col">
 
-        <a href="home.html" class="logo">
-            <img src="../images/thrift_logo.png"
-                 alt="THRIFT Logo"
-                 class="thrift_logo">
-        </a>
+<!-- NAVIGATION BAR -->
+<nav class="navbar">
+    <a href="home.html" class="logo">
+        <img src="../images/thrift_logo.png" alt="Thrift logo" class="thrift_logo" data-page="home">
+    </a>
+    
+    <div class="nav-links">
+        <a href="home.html" data-page="Home">Home</a>
+        <a href="categories.html" data-page="categories">Categories</a>
+        <a href="explore.html" data-page="explore">Explore</a>
+        <a href="about.html" data-page="about" class="active">About</a>
+        
+        <div class="search-box">
+            <i class="fa-solid fa-magnifying-glass search-icon"></i>
+            <input type="text" placeholder="Search clothes, books, electronics..." />
+            <button type="submit" class="search-btn">Search</button>
+        </div>
+        <a href="SellItem.html" data-page="sell">+ Sell an Item</a>
 
-        <div class="nav-links">
+        <div class="nav-right-icons">
+            <a href="cart.html" data-page="cart" class="icon-btn cart-btn" title="Cart">
+                <i class="fa-solid fa-cart-shopping"></i>
+                <span class="badge"></span>
+            </a>
+            <a href="profile.html" data-page="profile" class="icon-btn profile-btn" title="Profile">
+                <i class="fa-regular fa-user"></i>
+                <span class="icon-label">Profile</span>
+            </a>
+        </div>
+    </div>
+</nav>
 
-            <a href="home.html">Home</a>
-            <a href="categories.html">Categories</a>
-            <a href="explore.html">Explore</a>
-            <a href="about.html">About</a>
+    <!-- HERO HEADER BANNER -->
+    <section class="relative bg-gradient-to-r from-emerald-100/70 via-thrift-50 to-emerald-50/50 border-b border-emerald-100/80 overflow-hidden py-16">
+        <div class="absolute -top-4 right-10 text-emerald-300 opacity-40 text-8xl pointer-events-none">
+            <i class="fa-solid fa-leaf"></i>
+        </div>
+        <div class="absolute bottom-2 right-1/3 text-thrift-200 opacity-50 text-6xl pointer-events-none transform -rotate-45">
+            <i class="fa-solid fa-seedling"></i>
+        </div>
 
-            <div class="search-box">
-                <i class="fa-solid fa-magnifying-glass search-icon"></i>
-                <input type="text"
-                       placeholder="Search clothes, books, electronics...">
-                <button type="button" class="search-btn">Search</button>
+        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col items-center text-center relative z-10 space-y-4">
+            <span class="bg-emerald-100 text-emerald-800 text-xs font-bold px-3.5 py-1.5 rounded-full border border-emerald-200/60 shadow-sm inline-flex items-center gap-1.5">
+                <i class="fa-solid fa-circle-info text-[10px]"></i> Our Mission & Vision
+            </span>
+            <h1 class="text-3xl sm:text-5xl font-extrabold text-slate-900 tracking-tight leading-tight">
+                Reimagining How We Consume
+            </h1>
+            <p class="text-slate-600 text-sm sm:text-base max-w-2xl leading-relaxed">
+                Thrift is a sustainable community marketplace designed to give pre-loved belongings a second life, reduce environmental footprint, and connect mindful buyers with local sellers.
+            </p>
+        </div>
+    </section>
+
+    <!-- MAIN CONTENT AREA -->
+    <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 flex-1 w-full space-y-12">
+        
+        <!-- THREE CORE PILLARS SECTION -->
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-6 sm:gap-8 items-stretch">
+            
+            <!-- Pillar 1 -->
+            <div class="bg-white p-6 sm:p-8 rounded-2xl border border-stone-200 shadow-sm flex flex-col items-start justify-start space-y-4 hover:shadow-md transition">
+                <div class="w-12 h-12 rounded-xl bg-thrift-50 text-thrift-700 flex items-center justify-center text-xl font-bold shrink-0">
+                    <i class="fa-solid fa-recycle"></i>
+                </div>
+                <div class="space-y-2 flex-1">
+                    <h3 class="text-lg font-bold text-slate-900 leading-snug">Sustainable Living</h3>
+                    <p class="text-xs sm:text-sm text-slate-600 leading-relaxed">
+                        By choosing secondhand over new, we cut down textile and electronic waste, conserving resources and lowering carbon footprints.
+                    </p>
+                </div>
             </div>
 
-            <a href="SellItem.html">+ Sell an Item</a>
+            <!-- Pillar 2 -->
+            <div class="bg-white p-6 sm:p-8 rounded-2xl border border-stone-200 shadow-sm flex flex-col items-start justify-start space-y-4 hover:shadow-md transition">
+                <div class="w-12 h-12 rounded-xl bg-thrift-50 text-thrift-700 flex items-center justify-center text-xl font-bold shrink-0">
+                    <i class="fa-solid fa-handshake-angle"></i>
+                </div>
+                <div class="space-y-2 flex-1">
+                    <h3 class="text-lg font-bold text-slate-900 leading-snug">Community Trust</h3>
+                    <p class="text-xs sm:text-sm text-slate-600 leading-relaxed">
+                        Built for locals and students. We make listing items seamless, negotiations transparent, and local item discovery completely friction-free.
+                    </p>
+                </div>
+            </div>
 
-            <div class="nav-right-icons">
+            <!-- Pillar 3 -->
+            <div class="bg-white p-6 sm:p-8 rounded-2xl border border-stone-200 shadow-sm flex flex-col items-start justify-start space-y-4 hover:shadow-md transition">
+                <div class="w-12 h-12 rounded-xl bg-thrift-50 text-thrift-700 flex items-center justify-center text-xl font-bold shrink-0">
+                    <i class="fa-solid fa-wallet"></i>
+                </div>
+                <div class="space-y-2 flex-1">
+                    <h3 class="text-lg font-bold text-slate-900 leading-snug">Affordable Quality</h3>
+                    <p class="text-xs sm:text-sm text-slate-600 leading-relaxed">
+                        Find high-quality clothing, electronics, books, and household goods at a fraction of retail price while earning extra cash on unused items.
+                    </p>
+                </div>
+            </div>
 
-                <a href="cart.html" class="icon-btn cart-btn" title="Cart">
-                    <i class="fa-solid fa-cart-shopping"></i>
+        </div>
+
+        <!-- STORY / HOW IT WORKS SECTION -->
+        <div class="bg-white rounded-3xl border border-stone-200 p-6 sm:p-10 lg:p-12 shadow-sm grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center">
+            
+            <!-- Left Info Column (7 Cols) -->
+            <div class="lg:col-span-7 space-y-6">
+                <div class="space-y-2">
+                    <span class="text-xs font-bold uppercase tracking-wider text-thrift-700">Why We Started</span>
+                    <h2 class="text-2xl sm:text-3xl font-extrabold text-slate-900 tracking-tight leading-snug">Why Thrift Exists</h2>
+                </div>
+                
+                <p class="text-xs sm:text-sm text-slate-600 leading-relaxed">
+                    In a world driven by fast-paced consumption, functional items often sit unused or get discarded prematurely. We built a simple, reliable platform where quality goods easily change hands within the local community.
+                </p>
+                
+                <div class="space-y-3 pt-2">
+                    <div class="flex items-center gap-3 text-xs sm:text-sm font-semibold text-slate-800">
+                        <div class="w-6 h-6 rounded-full bg-emerald-100 text-emerald-800 flex items-center justify-center text-xs shrink-0">
+                            <i class="fa-solid fa-check"></i>
+                        </div>
+                        <span>Instant multi-step item listing with real-time live preview</span>
+                    </div>
+                    <div class="flex items-center gap-3 text-xs sm:text-sm font-semibold text-slate-800">
+                        <div class="w-6 h-6 rounded-full bg-emerald-100 text-emerald-800 flex items-center justify-center text-xs shrink-0">
+                            <i class="fa-solid fa-check"></i>
+                        </div>
+                        <span>Smart category sorting across Clothing, Electronics, Books, and more</span>
+                    </div>
+                    <div class="flex items-center gap-3 text-xs sm:text-sm font-semibold text-slate-800">
+                        <div class="w-6 h-6 rounded-full bg-emerald-100 text-emerald-800 flex items-center justify-center text-xs shrink-0">
+                            <i class="fa-solid fa-check"></i>
+                        </div>
+                        <span>Persistent local storage system keeping listings synchronized</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Right Callout Card Column (5 Cols) -->
+            <div class="lg:col-span-5 bg-gradient-to-br from-thrift-50 via-emerald-50/70 to-emerald-100/60 rounded-2xl p-6 sm:p-8 border border-emerald-200/80 flex flex-col items-center text-center space-y-4 shadow-sm">
+                <div class="w-14 h-14 rounded-full bg-thrift-700 text-white flex items-center justify-center text-2xl shadow-md shrink-0">
+                    <i class="fa-solid fa-box-open"></i>
+                </div>
+                <h4 class="text-base sm:text-lg font-bold text-slate-900 leading-snug">Have items sitting unused?</h4>
+                <p class="text-xs text-slate-600 leading-relaxed max-w-xs">
+                    List your items in under 2 minutes and let someone else give them a second life.
+                </p>
+                <a href="SellItem.html" class="w-full sm:w-auto bg-thrift-700 hover:bg-thrift-800 text-white font-bold py-3 px-6 rounded-xl text-xs shadow-md hover:shadow-lg transition flex items-center justify-center gap-2 group">
+                    <span>Start Selling Now</span>
+                    <i class="fa-solid fa-arrow-right text-[10px] group-hover:translate-x-0.5 transition"></i>
                 </a>
+            </div>
 
-                <a href="profile.html" class="icon-btn profile-btn" title="Profile">
-                    <i class="fa-regular fa-user"></i>
-                    <span class="icon-label">Profile</span>
-                </a>
+        </div>
 
+    </main>
+
+    <!-- FOOTER -->
+    <footer class="bg-thrift-900 text-slate-300 mt-auto text-xs py-8">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col sm:flex-row items-center justify-between gap-4">
+            <div class="flex items-center gap-2">
+                <span class="text-xl font-bold text-white tracking-tight">thrift.</span>
+                <span class="text-slate-500">© 2026 THRIFT Inc. All rights reserved.</span>
+            </div>
+            <div class="flex space-x-6 text-slate-400 font-medium">
+                <a href="about.html" class="hover:text-white transition">About</a>
+                <a href="#" class="hover:text-white transition">Help Center</a>
+                <a href="#" class="hover:text-white transition">Terms & Conditions</a>
+                <a href="#" class="hover:text-white transition">Privacy Policy</a>
             </div>
         </div>
-    </nav>
+    </footer>
 
 </body>
 </html>
-<p>In this website you can buy or sell second hand items</p>
