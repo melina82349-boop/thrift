@@ -1,0 +1,76 @@
+# Thrift — Modern Sustainable Marketplace
+
+A high-end, responsive peer-to-peer thrift marketplace web application designed for a boutique shopping and selling experience. Built with a focus on clean typography, smooth interactions, and a sustainable circular economy aesthetic.
+
+![Project Banner Preview](frontend/images/bannerimage.jpg)
+
+## ✨ Features
+
+- **Curated Collections**: Browse hand-picked pre-loved items categorized across Clothing, Books, Home & Decor, Electronics, Furniture, and Accessories.
+- **Dynamic Product Publishing**: Sellers can list their pre-loved items instantly using a custom sell form backed by client-side persistence.
+- **Persistent State Management**: Utilizes browser `localStorage` to manage cart items, user profiles, and dynamic product inventory without needing a heavy backend.
+- **Modern Boutique UI**: Crafted with a custom cream andthrift-green color palette, glassmorphism elements, and fully responsive grids.
+
+---
+
+## 🛠️ Tech Stack
+
+- **Markup & Layout**: HTML5, Semantic Elements
+- **Styling**: Tailwind CSS (v4) with custom theme configuration
+- **Interactivity & Logic**: Vanilla JavaScript (`ES6+`, `localStorage` API)
+- **Icons**: FontAwesome 6
+- **Build Tools**: Tailwind CLI Watcher
+
+---
+
+## 🚀 Getting Started & Setup
+
+Follow these steps to run the project locally on your machine.
+
+### Prerequisites
+Make sure you have [Node.js](https://nodejs.org/) installed on your computer.
+
+### Installation & Execution
+
+1. **Clone the repository:**
+   ```bash
+   git clone https://github.com/your-username/thrift-marketplace.git
+   cd thrift-marketplace
+   ```
+
+2. **Run the Tailwind CSS CLI Watcher:**
+   To compile and watch for changes in your CSS files, run the following command in your project root:
+   ```bash
+   npx @tailwindcss/cli -i ./frontend/input.css -o ./frontend/output.css --watch
+   ```
+
+3. **Open the Project:**
+   - Open the `frontend/Pages/home.html` file in your browser, or
+   - Use the **Live Server** extension in VS Code to launch the app locally (typically at `http://127.0.0.1:5500/frontend/Pages/home.html`).
+
+---
+
+## 📂 Project Structure
+
+```text
+thrift/
+├── frontend/
+│   ├── Pages/              # HTML pages (home.html, categories.html, SellItem.html, etc.)
+│   ├── images/             # Product images and brand logos
+│   ├── input.css           # Tailwind v4 source configuration & custom themes
+│   ├── output.css          # Compiled Tailwind stylesheet
+│   ├── home.css            # Custom page-specific styling
+│   ├── nav.css             # Navigation bar styling
+│   └── script.js           # Global application logic & state handlers
+└── README.md
+```
+
+---
+
+## 💡 Why This Project?
+This project demonstrates modern frontend engineering principles by combining utility-first CSS tooling (`Tailwind v4`) with vanilla JavaScript state persistence (`localStorage`). It proves that sleek, professional, production-ready e-commerce user experiences can be architected with lightweight, zero-framework web technologies.
+
+---
+
+## 📄 License
+This project is open-source and available under the [MIT License](LICENSE).
